@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-photos',
@@ -16,8 +16,11 @@ export class PhotosComponent implements OnInit {
     this._photos = value;
   }
 
+  @Output() upvoteEvent: EventEmitter<string> = new EventEmitter<string>();
+
   upvote(photo){
     photo.votes += 1;
+    this.upvoteEvent.emit(photo.description)
   }
   constructor() { }
 

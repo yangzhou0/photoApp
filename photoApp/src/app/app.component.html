@@ -1,2 +1,3 @@
 <h1>{{title}}</h1>
-<app-photos [photos]='photoList'></app-photos>
+<p>You just upvoted: {{mostRecentUpvotedPhoto}}</p>
+<app-photos [photos]='photoList' (upvoteEvent) = 'handleUpvote($event)'></app-photos>
