@@ -1,0 +1,6 @@
+<h3 [hidden] = '!isVisible'>{{subTitle}}</h3>
+<div *ngFor = 'let photo of photos' class="">
+  <img src={{photo.imageUrl}} alt="">
+  <p>{{photo.description}}</p>
+  <p>{{photo.hashtag}}</p>
+</div>
