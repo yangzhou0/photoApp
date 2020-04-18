@@ -1,11 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-photo',
-  templateUrl: './photo.component.html',
-  styleUrls: ['./photo.component.css']
+  selector: 'app-photos',
+  templateUrl: './photos.component.html',
+  styleUrls: ['./photos.component.css']
 })
-export class PhotoComponent implements OnInit {
+export class PhotosComponent implements OnInit {
   subTitle = 'Gallery'
   isVisible = true;
   private _photos: any[];
@@ -14,6 +14,10 @@ export class PhotoComponent implements OnInit {
   };
   set photos(value: any[]){
     this._photos = value;
+  }
+
+  upvote(photo){
+    photo.votes += 1;
   }
   constructor() { }
 
