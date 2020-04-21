@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
-
+import { IPhoto } from '../shared/interface';
+import {PhotoService} from '../core/photo.service';
 @Component({
   selector: 'app-photos',
   templateUrl: './photos.component.html',
@@ -8,13 +9,8 @@ import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
 export class PhotosComponent implements OnInit {
   subTitle = 'Gallery'
   isVisible = true;
-  private _photos: any[];
-  @Input() get photos(): any[]{
-    return this._photos;
-  };
-  set photos(value: any[]){
-    this._photos = value;
-  }
+  photos: IPhoto[];
+
 
   @Output() upvoteEvent: EventEmitter<string> = new EventEmitter<string>();
 
@@ -22,9 +18,10 @@ export class PhotosComponent implements OnInit {
     photo.votes += 1;
     this.upvoteEvent.emit(photo.description)
   }
-  constructor() { }
+  constructor(private photoService: PhotoService) { }
 
   ngOnInit(): void {
+    this.photoService.getPhotos().subscribe((photos: IPhoto[])=>this.photos = photos);
   }
 
 }
