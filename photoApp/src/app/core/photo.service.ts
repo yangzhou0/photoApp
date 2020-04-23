@@ -9,10 +9,10 @@ import {environment} from '../../environments/environment';
   providedIn: 'root'
 })
 export class PhotoService {
-  private apiUrl = environment.apiUrl;
+  private baseUrl = environment.baseUrl;
 
-  getPhotos(): Observable<IPhoto[]> {
-    return of(PHOTOS);
+  getPhotos(): Observable<IPhoto> {
+    return this.http.get(this.baseUrl + 'api/photos');
   }
 
   getPhoto(id): IPhoto{
