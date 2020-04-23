@@ -11,7 +11,7 @@ import {environment} from '../../environments/environment';
 export class PhotoService {
   private baseUrl = environment.baseUrl;
 
-  getPhotos(): Observable<IPhoto> {
+  getPhotos(): Observable<any> {
     return this.http.get(this.baseUrl + 'api/photos');
   }
 

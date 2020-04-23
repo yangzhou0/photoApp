@@ -10,6 +10,7 @@ export class PhotosComponent implements OnInit {
   subTitle = 'Gallery'
   isVisible = true;
   photos: IPhoto[];
+  baseUrl: string;
   getPhotos(): void {
     this.photoService.getPhotos()
         .subscribe(photos => this.photos = photos);
@@ -24,7 +25,8 @@ export class PhotosComponent implements OnInit {
   constructor(private photoService: PhotoService) { }
 
   ngOnInit(): void {
-    this.getPhotos()
+    this.getPhotos();
+    this.baseUrl = this.photoService.baseUrl;
   }
 
 }
