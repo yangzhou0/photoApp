@@ -19,7 +19,7 @@ export class PhotosComponent implements OnInit {
   @Output() upvoteEvent: EventEmitter<string> = new EventEmitter<string>();
 
   upvote(photo){
-    photo.votes += 1;
+    photo.likes += 1;
     this.upvoteEvent.emit(photo.description)
   }
   constructor(private photoService: PhotoService) { }
