@@ -1,6 +1,6 @@
 <h3 [hidden] = '!isVisible'>{{subTitle}}</h3>
 <div *ngFor = 'let photo of photos' class="">
-  <img src={{baseUrl}}{{photo.imageUrl}} alt="">
+  <img src={{photoUrl}}{{photo.imageUrl}} alt="">
   <p>{{photo.description}}</p>
   <p>{{photo.hashtag}}</p>
   <button type="button" name="button" (click) = "upvote(photo)">Upvote({{photo.votes}})</button>

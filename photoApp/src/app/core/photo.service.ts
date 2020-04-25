@@ -9,7 +9,7 @@ import {environment} from '../../environments/environment';
   providedIn: 'root'
 })
 export class PhotoService {
-  private baseUrl = environment.baseUrl;
+  baseUrl = environment.baseUrl;
 
   getPhotos(): Observable<any> {
     return this.http.get(this.baseUrl + 'api/photos');
