@@ -16,6 +16,11 @@ export class PhotosComponent implements OnInit {
         .subscribe(photos => this.photos = photos);
   }
 
+  delete(photo): void{
+    console.log(photo._id);
+    this.photoService.deletePhoto(photo._id).subscribe(()=>{this.getPhotos()});
+  }
+
   @Output() upvoteEvent: EventEmitter<string> = new EventEmitter<string>();
 
   upvote(photo){

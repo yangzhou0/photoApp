@@ -15,6 +15,11 @@ export class PhotoService {
     return this.http.get(this.baseUrl + 'api/photos');
   }
 
+  deletePhoto(photoId: number){
+    console.log(this.baseUrl + `api/photos/${photoId}`);
+    return this.http.delete(`${this.baseUrl}api/photos/${photoId}`);
+  }
+
   getPhoto(id): IPhoto{
   return PHOTOS.find((el) => {return el._id == id});
   }
