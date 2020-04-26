@@ -1,1 +1,7 @@
-<p>create-bar works!</p>
+ <div>
+   <label>Description:</label> <input #description />
+   <label>Hashtag:</label> <input #hashtag />
+   <button (click)="uploadPhoto(description.value, hashtag.value)">
+     Upload
+   </button>
+ </div>

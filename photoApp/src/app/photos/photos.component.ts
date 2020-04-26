@@ -13,7 +13,10 @@ export class PhotosComponent implements OnInit {
   photoUrl: string;
   getPhotos(): void {
     this.photoService.getPhotos()
-        .subscribe(photos => this.photos = photos);
+        .subscribe(photos => {
+          this.photos = photos;
+          console.log('type: ' + typeof photos);
+          });
   }
 
   delete(photo): void{
