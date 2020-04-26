@@ -1,6 +1,9 @@
  <div>
    <label>Description:</label> <input #description />
    <label>Hashtag:</label> <input #hashtag />
+   <br>
+   <label for="photo"></label><input type="file" name="photo">
+   <br>
    <button (click)="uploadPhoto(description.value, hashtag.value)">
      Upload
    </button>
