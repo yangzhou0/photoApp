@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PhotosComponent } from './photos/photos.component';
 import { CreateBarComponent } from './photos/create-bar/create-bar.component';
+import { PhotoComponent } from './photos/photo/photo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PhotosComponent,
-    CreateBarComponent
+    CreateBarComponent,
+    PhotoComponent
   ],
   imports: [
     BrowserModule,
