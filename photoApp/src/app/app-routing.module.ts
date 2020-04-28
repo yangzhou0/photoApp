@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router'; // CLI imports router
+import {PhotosComponent} from './photos/photos.component'
+const routes: Routes = [
+  { path: 'photos', component: PhotosComponent},
+  { path: '', redirectTo: '/photos', pathMatch: 'full'},
+  { path: '**', pathMatch: 'full', redirectTo: '/photos' }
+]; // sets up routes constant where you define your routes
 
-
-const routes: Routes = [];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

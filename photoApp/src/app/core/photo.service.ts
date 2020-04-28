@@ -12,12 +12,19 @@ export class PhotoService {
   baseUrl = environment.baseUrl;
 
   getPhotos(): Observable<any> {
+    console.log('getPhoto in PhotoService type:' + this.http.get(this.baseUrl + 'api/photos')); // Observable<Object>
     return this.http.get(this.baseUrl + 'api/photos');
   }
 
   deletePhoto(photoId: number){
     console.log(this.baseUrl + `api/photos/${photoId}`);
     return this.http.delete(`${this.baseUrl}api/photos/${photoId}`);
+  }
+
+  uploadPhoto(data){
+    console.log('loading');
+    console.log(data);
+    return this.http.post(`${this.baseUrl}api/photos/`,data)
   }
 
   getPhoto(id): IPhoto{

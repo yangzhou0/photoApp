@@ -15,7 +15,8 @@ export class PhotosComponent implements OnInit {
     this.photoService.getPhotos()
         .subscribe(photos => {
           this.photos = photos;
-          console.log('type: ' + typeof photos);
+          console.log('type: ' + typeof photos);//object/array
+          console.log('length: ' + photos.length);//1
           });
   }
 

@@ -2,9 +2,9 @@
    <label>Description:</label> <input #description />
    <label>Hashtag:</label> <input #hashtag />
    <br>
-   <label for="photo"></label><input type="file" name="photo">
+   <label for="photo"></label><input #photo type="file" name="photo">
    <br>
-   <button (click)="uploadPhoto(description.value, hashtag.value)">
+   <button (click)="uploadPhoto(description.value, hashtag.value,photo.value)">
      Upload
    </button>
  </div>
