@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import {PhotoService} from '../../core/photo.service';
+import { IPhoto } from '../../shared/interface';
 
 @Component({
   selector: 'app-photo',
@@ -8,9 +9,10 @@ import {PhotoService} from '../../core/photo.service';
   styleUrls: ['./photo.component.css']
 })
 export class PhotoComponent implements OnInit {
-  photo;
+  photo: IPhoto;
   photoUrl;
-  getPhoto(photoId){
+  getPhoto(){
+    let photoId = this.route.snapshot.paramMap.get('id');
     this.photoService.getPhoto(photoId).subscribe(photo=>{
       this.photo = photo;
     })
@@ -21,8 +23,7 @@ export class PhotoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-      let photoId = this.route.snapshot.paramMap.get('id');
-      this.getPhoto(photoId);
+      this.getPhoto();
       this.photoUrl = this.photoService.baseUrl;
   }
 

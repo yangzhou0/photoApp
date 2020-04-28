@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { PhotosComponent } from './photos/photos.component';
 import { CreateBarComponent } from './photos/create-bar/create-bar.component';
 import { PhotoComponent } from './photos/photo/photo.component';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PhotosComponent,
     CreateBarComponent,
-    PhotoComponent
+    PhotoComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
-<div class="center">
+<div *ngIf="photo" class="">
   <img src={{photoUrl}}{{photo.imageUrl}} alt="">
   <p>{{photo.description}}</p>
   <p>{{photo.hashtag}}</p>
 </div>
-<a routerLink="/photos">back to gallery</a>
+<a routerLink="photos">back to gallery</a>
