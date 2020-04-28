@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { PHOTOS } from '../../assets/photos';
 import { IPhoto } from '../shared/interface';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
@@ -9,11 +8,14 @@ import {environment} from '../../environments/environment';
   providedIn: 'root'
 })
 export class PhotoService {
-  baseUrl = environment.baseUrl;
+  baseUrl = environment.baseUrl; //'http://localhost:8001/'
 
   getPhotos(): Observable<any> {
-    console.log('getPhoto in PhotoService type:' + this.http.get(this.baseUrl + 'api/photos')); // Observable<Object>
-    return this.http.get(this.baseUrl + 'api/photos');
+    return this.http.get(`${this.baseUrl}api/photos`);
+  }
+
+  getPhoto(photoId): Observable<any>{
+    return this.http.get(`${this.baseUrl}api/photos/${photoId}`)
   }
 
   deletePhoto(photoId: number){
@@ -27,9 +29,6 @@ export class PhotoService {
     return this.http.post(`${this.baseUrl}api/photos/`,data)
   }
 
-  getPhoto(id): IPhoto{
-  return PHOTOS.find((el) => {return el._id == id});
-  }
 
   constructor(private http: HttpClient) { }
 }

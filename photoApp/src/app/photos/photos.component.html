@@ -2,7 +2,9 @@
 <br>
 <h3 [hidden] = '!isVisible'>{{subTitle}}</h3>
 <div *ngFor = 'let photo of photos' class="">
-  <img src={{photoUrl}}{{photo.imageUrl}} alt="">
+  <a routerLink={{photo._id}} routerLinkActive="active">
+    <img src={{photoUrl}}{{photo.imageUrl}} alt="">
+  </a>
   <p>{{photo.description}}</p>
   <p>{{photo.hashtag}}</p>
   <button type="button" name="button" (click) = "upvote(photo)">Like({{photo.likes}})</button>

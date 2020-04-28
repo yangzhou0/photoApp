@@ -21,7 +21,6 @@ export class PhotosComponent implements OnInit {
   }
 
   delete(photo): void{
-    console.log(photo._id);
     this.photoService.deletePhoto(photo._id).subscribe(()=>{this.getPhotos()});
   }
 
