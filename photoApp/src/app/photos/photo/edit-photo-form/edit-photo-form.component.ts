@@ -10,6 +10,11 @@ import { Router,ActivatedRoute, NavigationExtras} from '@angular/router';
 })
 export class EditPhotoFormComponent implements OnInit {
   @Input() photo;
+  editing = false;
+
+  toggleEdit(boolean){
+    this.editing = boolean;
+  }
   updatePhoto(photoId,data){
     this.photoService.updatePhoto(photoId,data).subscribe(()=>{
       this.messageService.add('Successfully updated photo!')
