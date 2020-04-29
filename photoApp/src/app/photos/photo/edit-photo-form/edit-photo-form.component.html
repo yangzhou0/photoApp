@@ -1,6 +1,6 @@
 <div class="container">
     <h1>Update photo@ID: {{photo._id}}</h1>
-    <form>
+    <form #editPhotoForm = 'ngForm' (ngSubmit)="updatePhoto(photo._id,editPhotoForm.value)">
       <div class="form-group">
         <label for="description">Descripion</label>
         <input type="text" class="form-control"

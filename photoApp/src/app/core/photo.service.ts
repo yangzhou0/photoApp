@@ -30,6 +30,10 @@ export class PhotoService {
     return this.http.post(`${this.baseUrl}api/photos/`,data)
   }
 
+  updatePhoto(id,data){
+    return this.http.put(`${this.baseUrl}api/photos/${id}`,data)
+  }
+
 
   constructor(
     private http: HttpClient,
