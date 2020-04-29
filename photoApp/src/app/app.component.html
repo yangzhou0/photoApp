@@ -1,3 +1,4 @@
 <h1>{{title}}</h1>
-<p>You just liked: {{mostRecentUpvotedPhoto}}</p>
+<app-messages></app-messages>
+<br>
 <router-outlet (upvoteEvent) = 'handleUpvote($event)'></router-outlet>

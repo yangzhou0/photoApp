@@ -3,7 +3,7 @@ import { Observable, of } from 'rxjs';
 import { IPhoto } from '../shared/interface';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
-
+import {MessageService} from './message.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,6 +11,7 @@ export class PhotoService {
   baseUrl = environment.baseUrl; //'http://localhost:8001/'
 
   getPhotos(): Observable<any> {
+    this.messageService.add('PhotoService: fetched all photos');
     return this.http.get(`${this.baseUrl}api/photos`);
   }
 
@@ -30,5 +31,8 @@ export class PhotoService {
   }
 
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private messageService: MessageService
+  ) { }
 }
