@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {PhotoService} from '../../../core/photo.service';
+import {MessageService} from '../../../core/message.service';
 import { Router,ActivatedRoute, NavigationExtras} from '@angular/router';
+
 @Component({
   selector: 'edit-photo-form',
   templateUrl: './edit-photo-form.component.html',
@@ -10,11 +12,11 @@ export class EditPhotoFormComponent implements OnInit {
   @Input() photo;
   updatePhoto(photoId,data){
     this.photoService.updatePhoto(photoId,data).subscribe(()=>{
-      console.log(this.route)
+      this.messageService.add('Successfully updated photo!')
       this.router.navigate(['photos/' + photoId]);
     })
   }
-  constructor(private photoService: PhotoService, private router: Router, private route: ActivatedRoute){ }
+  constructor(private photoService: PhotoService, private messageService: MessageService, private router: Router, ){ }
 
   ngOnInit(): void {
 
