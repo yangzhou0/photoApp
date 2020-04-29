@@ -13,7 +13,7 @@ export class EditPhotoFormComponent implements OnInit {
   updatePhoto(photoId,data){
     this.photoService.updatePhoto(photoId,data).subscribe(()=>{
       this.messageService.add('Successfully updated photo!')
-      this.router.navigate(['photos/' + photoId]);
+      this.router.navigate(['/photos/' + photoId]);
     })
   }
   constructor(private photoService: PhotoService, private messageService: MessageService, private router: Router, ){ }
