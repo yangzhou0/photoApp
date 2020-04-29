@@ -2,12 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule }   from '@angular/forms';
+
 import { AppComponent } from './app.component';
 import { PhotosComponent } from './photos/photos.component';
 import { CreateBarComponent } from './photos/create-bar/create-bar.component';
 import { PhotoComponent } from './photos/photo/photo.component';
 import { MessagesComponent } from './messages/messages.component';
-import { EditPhotoFormComponent } from './photos/edit-photo-form/edit-photo-form.component';
+import { EditPhotoFormComponent } from './photos/photo/edit-photo-form/edit-photo-form.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { EditPhotoFormComponent } from './photos/edit-photo-form/edit-photo-form
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
