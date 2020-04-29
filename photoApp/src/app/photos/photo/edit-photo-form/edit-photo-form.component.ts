@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'edit-photo-form',
@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./edit-photo-form.component.css']
 })
 export class EditPhotoFormComponent implements OnInit {
-
+  @Input() photo;
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

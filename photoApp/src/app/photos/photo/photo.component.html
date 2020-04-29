@@ -3,7 +3,7 @@
   <p>{{photo.description}}</p>
   <p>{{photo.hashtag}}</p>
 </div>
-<div class="">
-  <edit-photo-form></edit-photo-form>
+<div *ngIf="photo" class="">
+  <edit-photo-form [photo]='photo'></edit-photo-form>
 </div>
 <a routerLink="photos">back to gallery</a>
