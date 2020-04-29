@@ -12,7 +12,7 @@ export class PhotoComponent implements OnInit {
   photo: IPhoto;
   photoUrl;
   getPhoto(){
-    let photoId = this.route.snapshot.paramMap.get('id');
+    let photoId = this.route.snapshot.params.id;
     this.photoService.getPhoto(photoId).subscribe(photo=>{
       this.photo = photo;
     })
