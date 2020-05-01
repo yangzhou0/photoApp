@@ -25,8 +25,6 @@ export class PhotoService {
   }
 
   uploadPhoto(data){
-    console.log('loading');
-    console.log(data);
     return this.http.post(`${this.baseUrl}api/photos/`,data)
   }
 

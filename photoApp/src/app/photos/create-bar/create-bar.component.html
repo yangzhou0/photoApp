@@ -1,5 +1,49 @@
-<input type="text" class="form-control" id="name"
-  required
-  [(ngModel)]="model.name" name="name"
-  #spy>
-<br>TODO: remove this: {{spy.className}}
+<div class="container">
+  <div [hidden]="submitted">
+    <h1>Photo Upload</h1>
+    <form (ngSubmit)="onSubmit(newPhotoForm.value);" #newPhotoForm="ngForm">
+      <div class="form-group">
+        <label for="description">description</label>
+        <input type="text" class="form-control" id="description"
+               required
+               name="description"
+               #description="ngModel"
+               [(ngModel)] = "photo.description">
+        <div [hidden]="description.valid"
+             class="alert alert-danger">
+          Description is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="hashtag">Hashtag</label>
+        <input type="text" class="form-control" id="hashtag"
+               required
+               name="hashtag"
+               #hashtag = 'ngModel'
+               [(ngModel)] = "photo.hashtag">
+       <div [hidden]="hashtag.valid"
+            class="alert alert-danger">
+         Hashtag is required
+       </div>
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="newPhotoForm.form.invalid">Submit</button>
+    </form>
+  </div>
+
+  <div [hidden]="!submitted">
+    <h2>You submitted the following:</h2>
+    <div class="row">
+      <div class="col-xs-3">Description</div>
+      <div class="col-xs-9">{{ photo.description }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Hashtag</div>
+      <div class="col-xs-9">{{ photo.hashtag }}</div>
+    </div>
+
+    <br>
+    <button class="btn btn-primary" (click)="submitted=false;photo={}">Upload another one</button>
+  </div>
+</div>
