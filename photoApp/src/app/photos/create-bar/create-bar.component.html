@@ -10,7 +10,7 @@
                name="description"
                #description="ngModel"
                [(ngModel)] = "photo.description">
-        <div [hidden]="description.valid"
+        <div [hidden]="description.valid || description.pristine"
              class="alert alert-danger">
           Description is required
         </div>
@@ -23,12 +23,12 @@
                name="hashtag"
                #hashtag = 'ngModel'
                [(ngModel)] = "photo.hashtag">
-       <div [hidden]="hashtag.valid"
+       <div [hidden]="hashtag.valid || hashtag.pristine"
             class="alert alert-danger">
          Hashtag is required
        </div>
       </div>
-      <button type="submit" class="btn btn-success" [disabled]="newPhotoForm.form.invalid">Submit</button>
+      <button type="submit" class="btn btn-success" [disabled]="newPhotoForm.invalid">Submit</button>
     </div>
 
       <div *ngIf="newPhotoForm.submitted">

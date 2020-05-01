@@ -7,7 +7,10 @@ import {PhotoService} from '../../core/photo.service';
   styleUrls: ['./create-bar.component.css']
 })
 export class CreateBarComponent implements OnInit {
-  
+  photo = {
+    description: 'enter some dope description',
+    hashtag: 'enter some cool # '
+  }
   onSubmit(data){
     console.log(data);
   }
