@@ -7,10 +7,8 @@ import {PhotoService} from '../../core/photo.service';
   styleUrls: ['./create-bar.component.css']
 })
 export class CreateBarComponent implements OnInit {
-  submitted = false;
-  photo={};
+  
   onSubmit(data){
-    this.submitted = true;
     console.log(data);
   }
   constructor(private photoService: PhotoService) { }

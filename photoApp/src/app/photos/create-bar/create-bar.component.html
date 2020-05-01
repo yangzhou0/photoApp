@@ -1,7 +1,8 @@
 <div class="container">
-  <div [hidden]="submitted">
-    <h1>Photo Upload</h1>
-    <form (ngSubmit)="onSubmit(newPhotoForm.value);" #newPhotoForm="ngForm">
+
+<h1>Photo Upload</h1>
+  <form (ngSubmit)="onSubmit(newPhotoForm.value)" #newPhotoForm="ngForm">
+    <div [hidden]="newPhotoForm.submitted">
       <div class="form-group">
         <label for="description">description</label>
         <input type="text" class="form-control" id="description"
@@ -27,23 +28,24 @@
          Hashtag is required
        </div>
       </div>
-
       <button type="submit" class="btn btn-success" [disabled]="newPhotoForm.form.invalid">Submit</button>
-    </form>
-  </div>
-
-  <div [hidden]="!submitted">
-    <h2>You submitted the following:</h2>
-    <div class="row">
-      <div class="col-xs-3">Description</div>
-      <div class="col-xs-9">{{ photo.description }}</div>
-    </div>
-    <div class="row">
-      <div class="col-xs-3">Hashtag</div>
-      <div class="col-xs-9">{{ photo.hashtag }}</div>
     </div>
 
-    <br>
-    <button class="btn btn-primary" (click)="submitted=false;photo={}">Upload another one</button>
-  </div>
+      <div *ngIf="newPhotoForm.submitted">
+        <h2>You submitted the following:</h2>
+        <div class="row">
+          <div class="col-xs-3">Description</div>
+          <div class="col-xs-9">{{ newPhotoForm.value.description }}</div>
+        </div>
+        <div class="row">
+          <div class="col-xs-3">Hashtag</div>
+          <div class="col-xs-9">{{ newPhotoForm.value.hashtag }}</div>
+        </div>
+
+        <br>
+        <button class="btn btn-primary" (click)="newPhotoForm.resetForm({})">Upload another one</button>
+      </div>
+
+  </form>
+
 </div>
