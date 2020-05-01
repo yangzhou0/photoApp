@@ -22,7 +22,7 @@
           </div>
       </div>
 
-      <button type="submit" class="btn btn-success">Submit</button>
+      <button type="submit" class="btn btn-success" [disabled]="editPhotoForm.form.invalid">Submit</button>
       <button type="button" name="button" (click) = "toggleEdit(false)">Cancel</button>
 
     </form>
