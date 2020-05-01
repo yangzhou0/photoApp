@@ -7,20 +7,11 @@ import {PhotoService} from '../../core/photo.service';
   styleUrls: ['./create-bar.component.css']
 })
 export class CreateBarComponent implements OnInit {
-
+  model = {name: 'yang'}
   constructor(private photoService: PhotoService) { }
-  uploadPhoto(description,hashtag,photo){
-    console.log('description: ' + description)
-    console.log('hashtag: ' + hashtag)
-    console.log('type of photo: ' + typeof photo)
-    let data = {
-      description: description,
-      hashtag: hashtag,
-      photo: photo
-    }
-    this.photoService.uploadPhoto(data).subscribe(()=>{console.log('success')});
-  }
+
   ngOnInit(): void {
+
   }
 
 }

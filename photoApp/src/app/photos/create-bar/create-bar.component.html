@@ -1,10 +1,5 @@
- <div>
-   <label>Description:</label> <input #description />
-   <label>Hashtag:</label> <input #hashtag />
-   <br>
-   <label for="photo"></label><input #photo type="file" name="photo">
-   <br>
-   <button (click)="uploadPhoto(description.value, hashtag.value,photo.value)">
-     Upload
-   </button>
- </div>
+<input type="text" class="form-control" id="name"
+  required
+  [(ngModel)]="model.name" name="name"
+  #spy>
+<br>TODO: remove this: {{spy.className}}

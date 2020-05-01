@@ -5,15 +5,21 @@
       <div class="form-group">
         <label for="description">Descripion</label>
         <input type="text" class="form-control"
-        [(ngModel)]="photo.description" name="description"  required>
-        Update photo description {{photo.description}}
+        [(ngModel)]="photo.description" name="description"  required #description="ngModel">
+          <div [hidden]="description.valid"
+            class="alert alert-danger">
+            description is required
+          </div>
       </div>
 
       <div class="form-group">
         <label for="hashtag">Hashtag</label>
         <input type="text" class="form-control" id="hashtag"
-        [(ngModel)]="photo.hashtag" name="hashtag" >
-        Update photo hashtag #{{photo.hashtag}}
+        [(ngModel)]="photo.hashtag" name="hashtag" required #hashtag = 'ngModel'>
+          <div [hidden]="hashtag.valid"
+            class="alert alert-danger">
+            hashtag is required
+          </div>
       </div>
 
       <button type="submit" class="btn btn-success">Submit</button>
