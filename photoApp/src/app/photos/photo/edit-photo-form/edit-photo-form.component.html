@@ -6,12 +6,14 @@
         <label for="description">Descripion</label>
         <input type="text" class="form-control"
         [(ngModel)]="photo.description" name="description"  required>
+        Update photo description {{photo.description}}
       </div>
 
       <div class="form-group">
         <label for="hashtag">Hashtag</label>
         <input type="text" class="form-control" id="hashtag"
         [(ngModel)]="photo.hashtag" name="hashtag" >
+        Update photo hashtag #{{photo.hashtag}}
       </div>
 
       <button type="submit" class="btn btn-success">Submit</button>
