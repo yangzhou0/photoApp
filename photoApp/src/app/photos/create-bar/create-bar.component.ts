@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { IPhoto } from '../../shared/interface';
 import {PhotoService} from '../../core/photo.service';
 import {MessageService} from '../../core/message.service';
@@ -13,13 +13,17 @@ export class CreateBarComponent implements OnInit {
     hashtag: 'enter some cool # ',
     photo: null
   }
+  @Output() refreshPhotos: EventEmitter<any> = new EventEmitter<any>()
+
   onSubmit(){
     let formData = new FormData();
     formData.append('photo', this.photo.photo);
     formData.append('hashtag', this.photo.hashtag);
     formData.append('description', this.photo.description);
-    this.photoService.uploadPhoto(formData).subscribe(()=>{
-      this.messageService.add('Successfully uploaded photo!')
+    this.photoService.uploadPhoto(formData).subscribe((photo)=>{
+      this.messageService.add('Successfully uploaded photo!');
+      console.log(photo)
+      this.refreshPhotos.emit();
     })
 
   }
