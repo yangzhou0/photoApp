@@ -1,7 +1,7 @@
 <div class="container">
 
 <h1>Photo Upload</h1>
-  <form (ngSubmit)="onSubmit(newPhotoForm.value)" #newPhotoForm="ngForm">
+  <form (ngSubmit)="onSubmit()" #newPhotoForm="ngForm">
     <div [hidden]="newPhotoForm.submitted">
       <div class="form-group">
         <label for="description">description</label>
@@ -31,7 +31,7 @@
 
       <div class="form-group">
         <label for="photo">Photo</label>
-        <input type="file" name="photo" id='photo' value="">
+        <input type="file" name="photo" id='photo' (change)="handleFileInput($event.target)">
       </div>
 
       <button type="submit" class="btn btn-success" [disabled]="newPhotoForm.invalid">Submit</button>
