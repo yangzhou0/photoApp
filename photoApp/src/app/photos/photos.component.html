@@ -1,7 +1,7 @@
 <app-create-bar (refreshPhotos) = "getPhotos()"></app-create-bar>
 <br>
 <h3 [hidden] = '!isVisible'>{{subTitle}}</h3>
-<div *ngFor = 'let photo of photos' class="">
+<div *ngFor = 'let photo of photos' class="photo">
   <a routerLink={{photo._id}} routerLinkActive="active">
     <img src={{photoUrl}}{{photo.imageUrl}} alt="">
   </a>
