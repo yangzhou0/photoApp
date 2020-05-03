@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
 import { IPhoto } from '../shared/interface';
 import {PhotoService} from '../core/photo.service';
+import {MessageService} from '../core/message.service';
+
 @Component({
   selector: 'app-photos',
   templateUrl: './photos.component.html',
@@ -26,9 +28,9 @@ export class PhotosComponent implements OnInit {
 
   upvote(photo){
     photo.likes += 1;
-    this.upvoteEvent.emit(photo.description)
+    this.messageService.add('you just liked ' + photo.description)
   }
-  constructor(private photoService: PhotoService) { }
+  constructor(private photoService: PhotoService, private messageService: MessageService) { }
 
   ngOnInit(): void {
     this.getPhotos();
