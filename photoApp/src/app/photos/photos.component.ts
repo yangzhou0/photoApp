@@ -21,10 +21,14 @@ export class PhotosComponent implements OnInit {
   }
 
   delete(photo): void{
-    this.photoService.deletePhoto(photo._id).subscribe(()=>{this.getPhotos()});
+    if (confirm(`Are you sure you want to delete id#: ${photo._id}?`)){
+      this.photoService.deletePhoto(photo._id).subscribe(()=>{
+        this.messageService.add(`Successfully deleted id#: ${photo._id}`)
+        this.getPhotos();
+      });
+    }
   }
 
-  @Output() upvoteEvent: EventEmitter<string> = new EventEmitter<string>();
 
   upvote(photo){
     photo.likes += 1;
