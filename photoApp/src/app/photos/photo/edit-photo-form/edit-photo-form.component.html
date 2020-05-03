@@ -20,7 +20,7 @@
         <input type="text" class="form-control" id="hashtag"
         [ngModel]="photo.hashtag" name="hashtag" required #hashtag = 'ngModel'>
         <div [hidden]="!hashtag.valid">
-          <strong>{{editPhotoForm.value.hashtag}}</strong> sounds cooler?
+          <strong>{{hashtag.value}}</strong> sounds cooler?
         </div>
           <div [hidden]="hashtag.valid"
             class="alert alert-danger">
