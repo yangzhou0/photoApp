@@ -2,6 +2,8 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { IPhoto } from '../../shared/interface';
 import {PhotoService} from '../../core/photo.service';
 import {MessageService} from '../../core/message.service';
+import {PhotosComponent} from '../photos.component';
+
 @Component({
   selector: 'app-create-bar',
   templateUrl: './create-bar.component.html',
@@ -22,8 +24,7 @@ export class CreateBarComponent implements OnInit {
     formData.append('description', this.photo.description);
     this.photoService.uploadPhoto(formData).subscribe((photo)=>{
       this.messageService.add('Successfully uploaded photo!');
-      console.log(photo)
-      this.refreshPhotos.emit();
+      this.photosComponent.getPhotos();
     })
 
   }
@@ -33,7 +34,7 @@ export class CreateBarComponent implements OnInit {
     this.photo.photo = photoFile;
     console.log(this.photo);
   }
-  constructor(private photoService: PhotoService, private messageService: MessageService) { }
+  constructor(private photoService: PhotoService, private messageService: MessageService, private photosComponent: PhotosComponent ) { }
 
   ngOnInit(): void {
 
