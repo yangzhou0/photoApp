@@ -15,7 +15,6 @@ export class CreateBarComponent implements OnInit {
     hashtag: 'enter some cool # ',
     photo: null
   }
-  @Output() refreshPhotos: EventEmitter<any> = new EventEmitter<any>()
 
   onSubmit(){
     let formData = new FormData();
@@ -32,7 +31,6 @@ export class CreateBarComponent implements OnInit {
   handleFileInput(target){
     let photoFile = target.files[0]; // select the single image we choose
     this.photo.photo = photoFile;
-    console.log(this.photo);
   }
   constructor(private photoService: PhotoService, private messageService: MessageService, private photosComponent: PhotosComponent ) { }
 
