@@ -11,7 +11,7 @@
                required
                minlength="4"
                placeholder="description"
-               (ngModel) = "photo.description">
+               [(ngModel)] = "photo.description">
         <div *ngIf="description.invalid && (description.dirty || description.touched)"
              class="alert alert-danger">
 
@@ -33,7 +33,7 @@
                name="hashtag"
                placeholder="#"
                #hashtag = 'ngModel'
-               (ngModel) = "photo.hashtag">
+               [(ngModel)] = "photo.hashtag">
        <div *ngIf="hashtag.invalid && (hashtag.dirty || hashtag.touched)"
             class="alert alert-danger">
 

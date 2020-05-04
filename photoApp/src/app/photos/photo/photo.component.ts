@@ -9,7 +9,7 @@ import { IPhoto } from '../../shared/interface';
   styleUrls: ['./photo.component.css']
 })
 export class PhotoComponent implements OnInit {
-  photo: IPhoto;
+  photo;
   photoUrl;
   getPhoto(){
     let photoId = this.route.snapshot.params.id;

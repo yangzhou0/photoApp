@@ -3,5 +3,5 @@ export interface IPhoto {
     description: string;
     hashtag: string;
     imageUrl: string;
-    votes:number
+    likes:number
 }
