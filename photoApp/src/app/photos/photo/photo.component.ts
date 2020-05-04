@@ -23,7 +23,6 @@ export class PhotoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-      console.log('imhere')
       this.getPhoto();
       this.photoUrl = this.photoService.baseUrl;
   }
