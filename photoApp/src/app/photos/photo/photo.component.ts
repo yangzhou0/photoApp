@@ -12,7 +12,7 @@ export class PhotoComponent implements OnInit {
   photo;
   photoUrl;
   getPhoto(){
-    let photoId = this.route.snapshot.params.id;
+    let photoId = this.route.snapshot.paramMap.get('id');
     this.photoService.getPhoto(photoId).subscribe(photo=>{
       this.photo = photo;
     })
@@ -23,6 +23,7 @@ export class PhotoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+      console.log('imhere')
       this.getPhoto();
       this.photoUrl = this.photoService.baseUrl;
   }
