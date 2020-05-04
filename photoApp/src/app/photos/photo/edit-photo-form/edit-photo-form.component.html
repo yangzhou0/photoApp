@@ -1,4 +1,4 @@
-<button type="button" name="button" (click) = "toggleEdit(true)">Edit Photo</button>
+<button type="button" class="btn btn-primary" name="button" (click) = "toggleEdit(true)">Edit Photo</button>
 <div *ngIf = 'editing' class="container">
     <h1>Update photo@ID: {{photo._id}}</h1>
     <form #editPhotoForm = 'ngForm' (ngSubmit)="updatePhoto(photo._id,editPhotoForm.value)">
@@ -28,8 +28,8 @@
           </div>
       </div>
 
-      <button type="submit" class="btn btn-success" [disabled]="editPhotoForm.invalid">Submit</button>
-      <button type="button" name="button" (click) = "toggleEdit(false)">Cancel</button>
+      <button type="submit" class="btn btn-primary" [disabled]="editPhotoForm.invalid">Submit</button>
+      <button type="button" class="btn btn-primary" name="button" (click) = "toggleEdit(false)">Cancel</button>
 
     </form>
 </div>
