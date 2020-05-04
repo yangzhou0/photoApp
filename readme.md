@@ -30,3 +30,5 @@ npm start
 3. Validation is applied to photo uploading and editing forms
 
 4. AppRoutingModule is used to navigate between components
+
+5. Utilize HttpClient in PhotoService to interact with data on MongoDB using REST APIs 
