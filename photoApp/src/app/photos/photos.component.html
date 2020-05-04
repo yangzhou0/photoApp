@@ -5,8 +5,8 @@
   <a routerLink={{photo._id}} routerLinkActive="active">
     <img src={{photoUrl}}{{photo.imageUrl}} alt="">
   </a>
-  <p>{{photo.description}}</p>
-  <p>{{photo.hashtag}}</p>
+  <p><strong>Description:</strong> {{photo.description}}</p>
+  <p><strong>Hashtag:</strong> {{photo.hashtag}}</p>
   <button type="button" class="btn btn-primary" (click) = "upvote(photo)">Like({{photo.likes}})</button>
   <button type="button" class="btn btn-primary" (click) = "delete(photo)">Delete</button>
 </div>

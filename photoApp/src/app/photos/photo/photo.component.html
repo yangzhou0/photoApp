@@ -1,7 +1,7 @@
 <div class="container" *ngIf="photo" class="">
   <img src={{photoUrl}}{{photo.imageUrl}} alt="">
-  <p>{{photo.description}}</p>
-  <p>{{photo.hashtag}}</p>
+  <p><strong>Description:</strong> {{photo.description}}</p>
+  <p><strong>Hashtag:</strong> {{photo.hashtag}}</p>
 </div>
 <div *ngIf="photo" class="">
   <edit-photo-form [photo]='photo'></edit-photo-form>
