@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+
+//import custome modules
 import {PhotoService} from '../../core/photo.service';
 import { IPhoto } from '../../shared/interface';
 
@@ -18,6 +20,7 @@ export class PhotoComponent implements OnInit {
       this.photo = photo;
     })
   }
+  
   constructor(
     private route: ActivatedRoute,
     private photoService: PhotoService

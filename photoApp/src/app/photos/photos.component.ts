@@ -1,4 +1,6 @@
 import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
+
+//import custome modules
 import { IPhoto } from '../shared/interface';
 import {PhotoService} from '../core/photo.service';
 import {MessageService} from '../core/message.service';
@@ -36,7 +38,7 @@ export class PhotosComponent implements OnInit {
   //like the photo
   upvote(photo){
     photo.likes += 1;
-    this.messageService.add('you just liked ' + photo.description)
+    this.messageService.add('you just liked ' + photo.description) //feedback in messages box
   }
 
   constructor(private photoService: PhotoService, private messageService: MessageService) { }
