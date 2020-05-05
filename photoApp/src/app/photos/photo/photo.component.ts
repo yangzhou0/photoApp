@@ -11,9 +11,10 @@ import { IPhoto } from '../../shared/interface';
 export class PhotoComponent implements OnInit {
   photo;
   photoUrl;
+
   getPhoto(){
-    let photoId = this.route.snapshot.paramMap.get('id');
-    this.photoService.getPhoto(photoId).subscribe(photo=>{
+    let photoId = this.route.snapshot.paramMap.get('id'); //capture part of the current url from routing
+    this.photoService.getPhoto(photoId).subscribe(photo=>{ //the url provides the id needed to fetch the particular photo from server
       this.photo = photo;
     })
   }
@@ -23,8 +24,8 @@ export class PhotoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-      this.getPhoto();
-      this.photoUrl = this.photoService.baseUrl;
+      this.getPhoto(); // fetch the photo from server
+      this.photoUrl = this.photoService.baseUrl; //server url
   }
 
 }

@@ -1,8 +1,11 @@
+<!-- display the photo and its properties when photo is loaded -->
 <div class="container" *ngIf="photo" class="">
   <img src={{photoUrl}}{{photo.imageUrl}} alt="">
   <p><strong>Description:</strong> {{photo.description}}</p>
   <p><strong>Hashtag:</strong> {{photo.hashtag}}</p>
 </div>
+
+<!-- display the editing form when photo is loaded -->
 <div *ngIf="photo" class="">
   <edit-photo-form [photo]='photo'></edit-photo-form>
 </div>

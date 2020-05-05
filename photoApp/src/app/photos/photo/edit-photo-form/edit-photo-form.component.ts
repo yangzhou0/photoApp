@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {PhotoService} from '../../../core/photo.service';
 import {MessageService} from '../../../core/message.service';
+import {PhotoComponent} from '../photo.component'
 import { Router,ActivatedRoute, NavigationExtras} from '@angular/router';
 
 @Component({
@@ -20,10 +21,13 @@ export class EditPhotoFormComponent implements OnInit {
       this.messageService.add('Successfully updated photo!')
       // this.router.navigate([`photos/${photoId}`]);
       location.reload();
-      console.log('navigating finished')
+      // this.photoComponent.getPhoto();
     })
   }
-  constructor(private photoService: PhotoService, private messageService: MessageService, private router: Router, ){ }
+  constructor(private photoService: PhotoService,
+    private messageService: MessageService,
+    private router: Router,
+    private photoComponent: PhotoComponent){ }
 
   ngOnInit(): void {
 

@@ -8,8 +8,4 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'photoApp';
   mostRecentUpvotedPhoto: string;
-  handleUpvote(data: string){
-    this.mostRecentUpvotedPhoto = data;
-  }
-
 }

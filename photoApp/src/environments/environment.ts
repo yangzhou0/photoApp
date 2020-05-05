@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://167.99.14.231:8001/'
+  baseUrl: 'http://167.99.14.231:8001/' //using my Digital Ocean project 5 as my back-end server
 };
 
 /*

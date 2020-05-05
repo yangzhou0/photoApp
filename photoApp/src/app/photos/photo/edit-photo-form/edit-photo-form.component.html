@@ -7,8 +7,10 @@
         <input type="text" class="form-control"
         [ngModel]="photo.description" name="description"  required #description="ngModel">
         <div [hidden] = "!description.valid">
+          <!-- displaying the data right below the input box -->
           You like <strong>{{editPhotoForm.value.description}}</strong> better?
         </div>
+        <!-- validate if the data has been entered -->
           <div [hidden]="description.valid"
             class="alert alert-danger">
             description is required

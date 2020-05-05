@@ -4,10 +4,11 @@ import {PhotosComponent} from './photos/photos.component';
 import {PhotoComponent} from './photos/photo/photo.component';
 
 const routes: Routes = [
+  //set up routing
   { path: 'photos/:id', component: PhotoComponent},
   { path: 'photos', component: PhotosComponent},
-  { path: '', redirectTo: '/photos', pathMatch: 'full'},
-  { path: '**', pathMatch: 'full', redirectTo: '/photos' }
+  { path: '', redirectTo: '/photos', pathMatch: 'full'}, //www.xx.com would direct to photos component
+  { path: '**', pathMatch: 'full', redirectTo: '/photos' } // wildcard, redirect to homepage if no url matched
 ]; // sets up routes constant where you define your routes
 
 

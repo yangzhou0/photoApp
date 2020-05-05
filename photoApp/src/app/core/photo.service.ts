@@ -1,17 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { IPhoto } from '../shared/interface';
 import {HttpClient} from '@angular/common/http';
+
+//custome modules
+import { IPhoto } from '../shared/interface';
 import {environment} from '../../environments/environment';
 import {MessageService} from './message.service';
-@Injectable({
-  providedIn: 'root'
-})
-export class PhotoService {
-  baseUrl = environment.baseUrl; //'http://localhost:8001/'
 
+@Injectable({
+  providedIn: 'root' //make this service availabel for the whole app
+})
+
+export class PhotoService {
+  baseUrl = environment.baseUrl; //'extract baseUrl from environment setting'
+
+  //CRUD operations as follows. returning observable to accomodate asynchronous call 
   getPhotos(): Observable<any> {
-    this.messageService.add('PhotoService: fetched all photos');
     return this.http.get(`${this.baseUrl}api/photos`);
   }
 
