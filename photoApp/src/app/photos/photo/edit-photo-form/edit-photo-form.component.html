@@ -8,7 +8,7 @@
         [ngModel]="photo.description" name="description"  required #description="ngModel">
         <div [hidden] = "!description.valid">
           <!-- displaying the data right below the input box -->
-          You like <strong>{{editPhotoForm.value.description}}</strong> better?
+           Editing: <strong>{{editPhotoForm.value.description}}</strong>
         </div>
         <!-- validate if the data has been entered -->
           <div [hidden]="description.valid"
@@ -20,9 +20,9 @@
       <div class="form-group">
         <label for="hashtag">Hashtag</label>
         <input type="text" class="form-control" id="hashtag"
-        [ngModel]="photo.hashtag" name="hashtag" required #hashtag = 'ngModel'>
+        [ngModel]="photo.hashtag" name="hashtag" required #hashtag = "ngModel">
         <div [hidden]="!hashtag.valid">
-          <strong>{{hashtag.value}}</strong> sounds cooler?
+          Editing: <strong>{{hashtag.value}}</strong>
         </div>
           <div [hidden]="hashtag.valid"
             class="alert alert-danger">

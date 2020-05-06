@@ -24,9 +24,7 @@ export class EditPhotoFormComponent implements OnInit {
   updatePhoto(photoId,data){
     this.photoService.updatePhoto(photoId,data).subscribe(()=>{
       this.messageService.add('Successfully updated photo!')//add message to let user now once photo updated
-      // this.router.navigate([`photos/${photoId}`]);
-      location.reload(); // reload the page
-      // this.photoComponent.getPhoto();
+      this.photoComponent.getPhoto();
     })
   }
   constructor(private photoService: PhotoService,
