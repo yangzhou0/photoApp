@@ -49,7 +49,7 @@
       <div class="form-group">
         <label for="photo">Photo</label>
         <!-- once a file is selected, handleFileInput function is triggered to handle the file selected -->
-        <input type="file" required accept = "image/*" name="photo" id='photo' (change)="handleFileInput($event.target)">
+        <input type="file" required accept = "image/*" name="photo" id='photo' [ngModel] = "" (change)="handleFileInput($event.target)">
       </div>
 
       <button type="submit" class="btn btn-primary" [disabled]="newPhotoForm.invalid">Submit</button>
