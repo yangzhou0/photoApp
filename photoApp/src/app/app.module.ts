@@ -13,6 +13,7 @@ import { PhotoComponent } from './photos/photo/photo.component';
 import { MessagesComponent } from './messages/messages.component';
 import { EditPhotoFormComponent } from './photos/photo/edit-photo-form/edit-photo-form.component';
 import { LoginComponent } from './login/login.component';
+import { PhotosListComponent } from './photos/photos-list/photos-list.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { LoginComponent } from './login/login.component';
     PhotoComponent,
     MessagesComponent,
     EditPhotoFormComponent,
-    LoginComponent
+    LoginComponent,
+    PhotosListComponent
   ],
   imports: [
     BrowserModule,
