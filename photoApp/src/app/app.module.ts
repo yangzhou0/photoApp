@@ -12,6 +12,7 @@ import { CreateBarComponent } from './photos/create-bar/create-bar.component';
 import { PhotoComponent } from './photos/photo/photo.component';
 import { MessagesComponent } from './messages/messages.component';
 import { EditPhotoFormComponent } from './photos/photo/edit-photo-form/edit-photo-form.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { EditPhotoFormComponent } from './photos/photo/edit-photo-form/edit-phot
     CreateBarComponent,
     PhotoComponent,
     MessagesComponent,
-    EditPhotoFormComponent
+    EditPhotoFormComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
