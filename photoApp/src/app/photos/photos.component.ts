@@ -11,20 +11,8 @@ import {MessageService} from '../core/message.service';
   styleUrls: ['./photos.component.css']
 })
 export class PhotosComponent implements OnInit {
-
-  constructor(private photoService: PhotoService, private messageService: MessageService) { }
-  photos: IPhoto[]; //photoInterface
-
-  getPhotos(): void {
-    this.photoService.getPhotos()
-        .subscribe(photos => {
-          this.messageService.add('PhotoService: fetched all photos'); // when loading all photos on homepage, added a message to let the user know
-          this.photos = photos.reverse();
-          });
-  }
-
+  
   ngOnInit(): void {
-    this.getPhotos()
   }
 
 }

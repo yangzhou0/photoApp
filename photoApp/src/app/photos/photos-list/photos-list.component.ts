@@ -12,15 +12,25 @@ import {PhotosComponent} from '../photos.component';
   styleUrls: ['./photos-list.component.css']
 })
 export class PhotosListComponent implements OnInit {
-  @Input() photos
+  photos
   subTitle: string = 'Gallery'
   photoUrl: string
+
+  //fetch all photos from MongoDB from ngOnInit
+  getPhotos(): void {
+    this.photoService.getPhotos()
+        .subscribe(photos => {
+          this.messageService.add('PhotoService: fetched all photos'); // when loading all photos on homepage, added a message to let the user know
+          this.photos = photos.reverse();
+          });
+  }
+
   //delete particular photo
   delete(photo): void{
     if (confirm(`Are you sure you want to delete id#: ${photo._id}?`)){
       this.photoService.deletePhoto(photo._id).subscribe(()=>{
         this.messageService.add(`Successfully deleted id#: ${photo._id}`)
-        this.photosComponent.getPhotos()
+        this.getPhotos()
       });
     }
   }
@@ -35,6 +45,7 @@ export class PhotosListComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.getPhotos();
     this.photoUrl = this.photoService.baseUrl;
   }
 
