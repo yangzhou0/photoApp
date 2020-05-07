@@ -15,7 +15,7 @@ export class PhotosListComponent implements OnInit {
   photos
   subTitle: string = 'Gallery'
   photoUrl: string
-
+  username: string
   //fetch all photos from MongoDB from ngOnInit
   getPhotos(): void {
     this.photoService.getPhotos()

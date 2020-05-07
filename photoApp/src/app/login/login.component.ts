@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   onLogin(username,password){
     this.authService.login({username:username, password:password}).subscribe((boolean)=>{
       if (boolean){
+        // navigate to photos component
         this.router.navigate(['photos']);
 
       }

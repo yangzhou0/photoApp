@@ -4,7 +4,7 @@
         <label for="username">Username</label>
         <input type="text" class="form-control" id="username"
                #username="ngModel" name="username" required placeholder="Copy username below" [ngModel]=''>
-        Username: <strong>user</strong>
+        Username: <strong>admin123</strong>
         <div *ngIf="username.invalid && (username.dirty || username.touched)"
              class="alert alert-danger">
            <div *ngIf="username.errors.required">
@@ -17,7 +17,7 @@
       <div class="form-group">
         <label for="password">Password</label>
         <input type="text" class="form-control" id="password" #password = 'ngModel' required name="password" placeholder="Copy Password Below" [ngModel]=''>
-        Password: <strong>1234</strong>
+        Password: <strong>password</strong>
 
        <div *ngIf="password.invalid && (password.dirty || password.touched)"
             class="alert alert-danger">
