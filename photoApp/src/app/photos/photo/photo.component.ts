@@ -18,11 +18,9 @@ export class PhotoComponent implements OnInit {
     let photoId = this.route.snapshot.paramMap.get('id'); //capture part of the current url from routing
     this.photoService.getPhoto(photoId).subscribe(
       photo => {
-        console.log(photo)
         this.photo = photo.body
       },
       error => {
-        console.log(error.status)
         if(error.status == 404){
           this.router.navigate(['photos'])
         }
