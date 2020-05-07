@@ -38,7 +38,10 @@ export class PhotosListComponent implements OnInit {
   //like the photo
   upvote(photo){
     photo.likes += 1;
-    this.messageService.add('you just liked ' + photo.description) //feedback in messages box
+    this.photoService.updatePhoto(photo._id,{likes:photo.likes}).subscribe(()=>{
+      this.messageService.add('you just liked ' + photo.description)//feedback in messages box
+    }
+    )
   }
 
   constructor(private photoService: PhotoService, private messageService: MessageService, private photosComponent: PhotosComponent) { }
