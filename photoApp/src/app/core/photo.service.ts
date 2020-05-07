@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 
 //custome modules
@@ -19,7 +19,7 @@ export class PhotoService {
   }
 
   getPhoto(photoId): Observable<any>{
-    return this.http.get(`${this.baseUrl}api/photos/${photoId}`)
+    return this.http.get(`${this.baseUrl}api/photos/${photoId}`,{ observe: 'response' })
   }
 
   deletePhoto(photoId: number){

@@ -16,14 +16,24 @@ export class PhotoComponent implements OnInit {
 
   getPhoto(){
     let photoId = this.route.snapshot.paramMap.get('id'); //capture part of the current url from routing
-    this.photoService.getPhoto(photoId).subscribe(photo=>{ //the url provides the id needed to fetch the particular photo from server
-      this.photo = photo;
-    })
+    this.photoService.getPhoto(photoId).subscribe(
+      photo => {
+        console.log(photo)
+        this.photo = photo.body
+      },
+      error => {
+        console.log(error.status)
+        if(error.status == 404){
+          this.router.navigate(['photos'])
+        }
+      }
+    )
   }
-  
+
   constructor(
     private route: ActivatedRoute,
-    private photoService: PhotoService
+    private photoService: PhotoService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
