@@ -11,12 +11,11 @@ import {MessageService} from '../core/message.service';
   styleUrls: ['./photos.component.css']
 })
 export class PhotosComponent implements OnInit {
-  //initial data fed to html to render, subject to change
-  subTitle = 'Gallery'
-  photos: IPhoto[]; //photoInterface
-  photoUrl: string;
 
-  //obtain photos from server
+  constructor(private photoService: PhotoService, private messageService: MessageService) { }
+  subTitle: string = 'Gallery'
+  photos: IPhoto[]; //photoInterface
+
   getPhotos(): void {
     this.photoService.getPhotos()
         .subscribe(photos => {
@@ -25,28 +24,8 @@ export class PhotosComponent implements OnInit {
           });
   }
 
-  //delete particular photo
-  delete(photo): void{
-    if (confirm(`Are you sure you want to delete id#: ${photo._id}?`)){
-      this.photoService.deletePhoto(photo._id).subscribe(()=>{
-        this.messageService.add(`Successfully deleted id#: ${photo._id}`)
-        this.getPhotos();
-      });
-    }
-  }
-
-  //like the photo
-  upvote(photo){
-    photo.likes += 1;
-    this.messageService.add('you just liked ' + photo.description) //feedback in messages box
-  }
-
-  constructor(private photoService: PhotoService, private messageService: MessageService) { }
-
-
   ngOnInit(): void {
-    this.getPhotos(); //fetch photos to display onInit
-    this.photoUrl = this.photoService.baseUrl;
+    this.getPhotos()
   }
 
 }

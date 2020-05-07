@@ -1,0 +1,11 @@
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  border: auto
+}
+
+.photo:hover {
+  background-color: beige;
+}
