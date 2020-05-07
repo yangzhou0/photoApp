@@ -9,6 +9,9 @@ export class LoginComponent implements OnInit {
 
   constructor() { }
 
+  onLogin(){
+    
+  }
   ngOnInit(): void {
   }
 
