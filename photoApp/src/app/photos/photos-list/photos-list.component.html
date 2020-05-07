@@ -1,3 +1,6 @@
+<app-create-bar></app-create-bar>
+<br>
+<h3>{{subTitle}}</h3>
 <div *ngFor = 'let photo of photos' class="photo">
   <a routerLink={{photo._id}} routerLinkActive="active">
     <img src={{photoUrl}}{{photo.imageUrl}} alt="">

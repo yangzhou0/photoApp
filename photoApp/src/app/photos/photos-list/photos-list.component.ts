@@ -13,6 +13,7 @@ import {PhotosComponent} from '../photos.component';
 })
 export class PhotosListComponent implements OnInit {
   @Input() photos
+  subTitle: string = 'Gallery'
   photoUrl: string
   //delete particular photo
   delete(photo): void{

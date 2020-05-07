@@ -13,7 +13,6 @@ import {MessageService} from '../core/message.service';
 export class PhotosComponent implements OnInit {
 
   constructor(private photoService: PhotoService, private messageService: MessageService) { }
-  subTitle: string = 'Gallery'
   photos: IPhoto[]; //photoInterface
 
   getPhotos(): void {
