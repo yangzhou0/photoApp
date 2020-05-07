@@ -5,7 +5,6 @@ import {HttpClient} from '@angular/common/http';
 //custome modules
 import { IPhoto } from '../shared/interface';
 import {environment} from '../../environments/environment';
-import {MessageService} from './message.service';
 
 @Injectable({
   providedIn: 'root' //make this service availabel for the whole app
@@ -14,7 +13,7 @@ import {MessageService} from './message.service';
 export class PhotoService {
   baseUrl = environment.baseUrl; //'extract baseUrl from environment setting'
 
-  //CRUD operations as follows. returning observable to accomodate asynchronous call 
+  //CRUD operations as follows. returning observable to accomodate asynchronous call
   getPhotos(): Observable<any> {
     return this.http.get(`${this.baseUrl}api/photos`);
   }
@@ -38,7 +37,6 @@ export class PhotoService {
 
 
   constructor(
-    private http: HttpClient,
-    private messageService: MessageService
+    private http: HttpClient
   ) { }
 }
