@@ -1,5 +1,5 @@
 <div class="container">
-  <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+  <form (ngSubmit)="onLogin(username.value, password.value)" #loginForm="ngForm">
       <div class="form-group">
         <label for="username">Username</label>
         <input type="text" class="form-control" id="username"
