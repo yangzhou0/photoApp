@@ -1,7 +1,14 @@
 <div class="container">
   <h1 class="pull-left">{{title}}</h1>
-  <h3 class="pull-right">Hello, xxx</h3>
+  <h3 class="pull-right">Hello {{username}}</h3>
 </div>
+<div class="container">
+  <span *ngIf = "isLoggedIn" class = "pull-right"><button  type="button" class="btn btn-primary" (click)="onLogout()">Logout</button></span>
+</div>
+<div class="container">
+  <a class = "pull-right" routerLink='photos'><button class="btn btn-primary" type="button" name="button">Photos</button></a>
+</div>
+
 <hr />
 <br>
 <router-outlet></router-outlet>

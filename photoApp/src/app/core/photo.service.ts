@@ -23,7 +23,6 @@ export class PhotoService {
   }
 
   deletePhoto(photoId: number){
-    console.log(this.baseUrl + `api/photos/${photoId}`);
     return this.http.delete(`${this.baseUrl}api/photos/${photoId}`);
   }
 

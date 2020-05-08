@@ -1,9 +1,9 @@
 import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 //import custome modules
 import { IPhoto } from '../shared/interface';
-import {PhotoService} from '../core/photo.service';
-import {MessageService} from '../core/message.service';
+import { LoginService } from '../core/login.service';
 
 @Component({
   selector: 'app-photos',
@@ -11,8 +11,19 @@ import {MessageService} from '../core/message.service';
   styleUrls: ['./photos.component.css']
 })
 export class PhotosComponent implements OnInit {
-  
+  isLoggedIn: boolean
+
+  checkLoggedIn(){
+    this.isLoggedIn = this.loginService.isLoggedIn
+    if(!this.isLoggedIn){
+      this.router.navigate(['login'])
+    }
+  }
+
+  constructor(private loginService: LoginService, private router: Router){}
+
   ngOnInit(): void {
+    this.checkLoggedIn()
   }
 
 }

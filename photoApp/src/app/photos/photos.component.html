@@ -1,4 +1,6 @@
 <app-messages></app-messages>
 
 <!-- using nested routes. for details, refer to app-routing.module.ts -->
-<router-outlet></router-outlet>
+<div *ngIf = "isLoggedIn">
+  <router-outlet></router-outlet>
+</div>
