@@ -1,14 +1,20 @@
 <div class="container">
-  <h1 class="pull-left">{{title}}</h1>
-  <h3 class="pull-right">Hello {{username}}</h3>
-</div>
-<div class="container">
-  <span *ngIf = "isLoggedIn" class = "pull-right"><button  type="button" class="btn btn-primary" (click)="onLogout()">Logout</button></span>
-</div>
-<div class="container">
-  <a class = "pull-right" routerLink='photos'><button class="btn btn-primary" type="button" name="button">Photos</button></a>
+  <div class="container">
+    <h1 class="pull-left">{{title}}</h1>
+    <h3 class="pull-right">Hello {{username}}</h3>
+  </div>
+  <div class="container">
+    <span *ngIf = "isLoggedIn" class = "pull-right"><button  type="button" class="btn btn-primary" (click)="onLogout()">Logout</button></span>
+  </div>
+  <div class="container">
+    <button class="pull-right btn btn-primary" type="button" name="button" (click)='onPhotos()'>Photos</button>
+  </div>
+
+  <hr />
+  <div *ngIf = 'warning' class = 'container' class="alert alert-danger">
+    <strong>Need to Log in first!</strong>
+  </div>
+  <br>
 </div>
 
-<hr />
-<br>
 <router-outlet></router-outlet>

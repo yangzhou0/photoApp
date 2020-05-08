@@ -11,12 +11,19 @@ export class AppComponent implements OnInit {
   username: string = ''
   title = 'photoApp';
   isLoggedIn: boolean;
+  warning: boolean
   constructor(private loginService: LoginService, private router: Router){}
 
   onLogout(){
     this.loginService.logOut();
+    this.syncLoginInfo();
     this.router.navigate(['login'])
 
+  }
+
+  onPhotos(){
+    this.warning = true; // change this to flash message
+    this.router.navigate(['photos'])
   }
 
   syncLoginInfo(){
@@ -25,6 +32,5 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.syncLoginInfo();
   }
 }
