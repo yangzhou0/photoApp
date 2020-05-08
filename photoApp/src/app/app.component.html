@@ -11,7 +11,7 @@
   </div>
 
   <hr />
-  <div *ngIf = 'warning' class = 'container' class="alert alert-danger">
+  <div *ngIf = 'warning && !isLoggedIn' class = 'container' class="alert alert-danger">
     <strong>Need to Log in first!</strong>
   </div>
   <br>
