@@ -1,0 +1,19 @@
+extends layout
+
+block content
+
+  img(src='/' + image.imageUrl height="40%" width="40%")
+  h3 Current Description: #{image.description}
+  h3 Current Hashtag: #{image.hashtag}
+  br
+  form(method='POST' action='/img/'+image._id )
+
+    div
+      label(for='description') Change your description:
+      input(type='text' value= image.description name='description' required)
+    div
+      label(for='hashtag') Change your hashtag:
+      input(type='text' value= image.hashtag name='hashtag' required)
+    button(type='submit') Submit
+  br
+  a(href='/img') All images

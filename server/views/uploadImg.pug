@@ -1,0 +1,16 @@
+form(method='POST' action='/img' enctype='multipart/form-data')
+  div
+    label(for='image') Upload your image:
+    input(type='file', name='image' required)
+
+  div
+    label(for='description') Description of your image:
+    input(type='text' placeholder= 'description' name='description' required)
+
+  div
+    label(for='hashtag') Hashtag # :
+    input(type='text' placeholder= 'hashtag' name='hashtag' required)
+  button(type='submit') Upload
+
+  if flashMessage
+    p(style= "color:red") #{flashMessage}

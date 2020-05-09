@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  if noImage
+    h2 You have not uploaded any image
+  else
+    form(method='post' action='/img?_method=DELETE')
+      button(type='submit' style= "color:red;height:40px;width=40px") Delete All Images
+    br
+    br
+    for image in images
+      p Description: #{image.description}
+      p Hashtag #: #{image.hashtag}
+      if !image.updatedAt
+        p Created at: #{image.createdAt}
+      else
+        p Updated at: #{image.updatedAt}
+      img(src= image.imageUrl height="20%" width="20%")
+      form(method='get' action='/img/'+image._id)
+        button(type='submit') Edit this image
+      form(method='post' action='/img/' + image._id + '?_method=DELETE')
+        button(type='submit') Delete this image
+      br
+      br
+  br
+
+  a(href='/') Click here to go back
