@@ -35,13 +35,13 @@ saveUninitialized: "true"
 }));
 
 //routes
-app.use('/', express.static('../client/dist'));
 app.use('/static', express.static(path.join(__dirname, 'public')));
 app.use('/home', indexRouter);
 app.use('/users', usersRouter);
 app.use('/img',imgRouter);
 app.use('/api/photos', apiphotos);
 app.use('/api/users', apiusers);
+app.use('/', express.static('../client/dist'));
 
 
 // catch 404 and forward to error handler
