@@ -22,6 +22,7 @@ export class PhotoComponent implements OnInit {
       },
       error => {
         if(error.status == 404){
+          //if particular photo did not get fetched, redirect to photos component
           this.router.navigate(['photos'])
         }
       }

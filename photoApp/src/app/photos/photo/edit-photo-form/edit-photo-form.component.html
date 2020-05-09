@@ -1,6 +1,11 @@
 <button type="button" class="btn btn-primary" name="button" (click) = "toggleEdit(true)">Edit Photo</button>
 <div *ngIf = 'editing' class="container">
-    <h1>Update photo@ID: {{photo._id}}</h1>
+    <h3>Update photo@ID: {{photo._id}}</h3>
+    <div class="" style="text-align: center">
+      <span>
+        <flash-messages></flash-messages>
+      </span>
+    </div>
     <form #editPhotoForm = 'ngForm' (ngSubmit)="updatePhoto(photo._id,editPhotoForm.value)">
       <div class="form-group">
         <label for="description">Descripion</label>

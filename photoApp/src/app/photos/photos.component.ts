@@ -23,6 +23,7 @@ export class PhotosComponent implements OnInit {
   constructor(private loginService: LoginService, private router: Router){}
 
   ngOnInit(): void {
+    //check if user is logged in at first, redirect to login page if not logged in.
     this.checkLoggedIn()
   }
 
