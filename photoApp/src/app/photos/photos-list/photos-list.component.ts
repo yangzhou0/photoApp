@@ -3,8 +3,10 @@ import { Component,Input, OnInit } from '@angular/core';
 //import custome modules
 import { IPhoto } from '../../shared/interface';
 import {PhotoService} from '../../core/photo.service';
-import {MessageService} from '../../core/message.service';
 import {PhotosComponent} from '../photos.component';
+
+//thirparty modules
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-photos-list',
@@ -20,7 +22,6 @@ export class PhotosListComponent implements OnInit {
   getPhotos(): void {
     this.photoService.getPhotos()
         .subscribe(photos => {
-          this.messageService.add('PhotoService: fetched all photos'); // when loading all photos on homepage, added a message to let the user know
           this.photos = photos.reverse();
           });
   }
@@ -29,8 +30,8 @@ export class PhotosListComponent implements OnInit {
   delete(photo): void{
     if (confirm(`Are you sure you want to delete id#: ${photo._id}?`)){
       this.photoService.deletePhoto(photo._id).subscribe(()=>{
-        this.messageService.add(`Successfully deleted id#: ${photo._id}`)
-        this.getPhotos()
+        this.getPhotos();
+        this._flashMessagesService.show(`Deleted ${photo._id}`, { cssClass: 'alert-success',timeout: 4000 } );
       });
     }
   }
@@ -39,12 +40,13 @@ export class PhotosListComponent implements OnInit {
   upvote(photo){
     photo.likes += 1;
     this.photoService.updatePhoto(photo._id,{likes:photo.likes}).subscribe(()=>{
-      this.messageService.add('you just liked ' + photo.description)//feedback in messages box
     }
     )
   }
 
-  constructor(private photoService: PhotoService, private messageService: MessageService, private photosComponent: PhotosComponent) { }
+  constructor(private photoService: PhotoService,
+    private photosComponent: PhotosComponent,
+    private _flashMessagesService: FlashMessagesService) { }
 
 
   ngOnInit(): void {

@@ -3,7 +3,6 @@ import { Router,ActivatedRoute, NavigationExtras} from '@angular/router';
 
 //import custome modules
 import {PhotoService} from '../../../core/photo.service';
-import {MessageService} from '../../../core/message.service';
 import {PhotoComponent} from '../photo.component'
 
 @Component({
@@ -23,12 +22,10 @@ export class EditPhotoFormComponent implements OnInit {
   //call updatePhoto from PhotoService
   updatePhoto(photoId,data){
     this.photoService.updatePhoto(photoId,data).subscribe(()=>{
-      this.messageService.add('Successfully updated photo!')//add message to let user now once photo updated
       this.photoComponent.getPhoto();
     })
   }
   constructor(private photoService: PhotoService,
-    private messageService: MessageService,
     private router: Router,
     private photoComponent: PhotoComponent){ }
 

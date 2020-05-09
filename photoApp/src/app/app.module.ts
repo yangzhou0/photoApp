@@ -10,10 +10,12 @@ import { AppComponent } from './app.component';
 import { PhotosComponent } from './photos/photos.component';
 import { CreateBarComponent } from './photos/create-bar/create-bar.component';
 import { PhotoComponent } from './photos/photo/photo.component';
-import { MessagesComponent } from './messages/messages.component';
 import { EditPhotoFormComponent } from './photos/photo/edit-photo-form/edit-photo-form.component';
 import { LoginComponent } from './login/login.component';
 import { PhotosListComponent } from './photos/photos-list/photos-list.component';
+
+//third party modules
+import { FlashMessagesModule } from 'angular2-flash-messages';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,6 @@ import { PhotosListComponent } from './photos/photos-list/photos-list.component'
     PhotosComponent,
     CreateBarComponent,
     PhotoComponent,
-    MessagesComponent,
     EditPhotoFormComponent,
     LoginComponent,
     PhotosListComponent
@@ -30,7 +31,8 @@ import { PhotosListComponent } from './photos/photos-list/photos-list.component'
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    FlashMessagesModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

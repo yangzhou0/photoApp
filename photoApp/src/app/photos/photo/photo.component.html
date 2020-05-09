@@ -3,10 +3,8 @@
   <img src={{photoUrl}}{{photo.imageUrl}} alt="">
   <p><strong>Description:</strong> {{photo.description}}</p>
   <p><strong>Hashtag:</strong> {{photo.hashtag}}</p>
+  <!-- display the editing form when photo is loaded -->
+  <div *ngIf="photo" class="container">
+    <edit-photo-form [photo]='photo'></edit-photo-form>
+  </div>
 </div>
-
-<!-- display the editing form when photo is loaded -->
-<div *ngIf="photo" class="">
-  <edit-photo-form [photo]='photo'></edit-photo-form>
-</div>
-<a routerLink="/photos">back to gallery</a>

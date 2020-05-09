@@ -1,7 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { IPhoto } from '../../shared/interface';
 import {PhotoService} from '../../core/photo.service';
-import {MessageService} from '../../core/message.service';
 import {PhotosComponent} from '../photos.component';
 import {PhotosListComponent} from '../photos-list/photos-list.component';
 
@@ -27,7 +26,6 @@ export class CreateBarComponent implements OnInit {
 
     //call photoService.uploadPhoto with data from form to POST API and interact with MongoDB through back-end server
     this.photoService.uploadPhoto(formData).subscribe((photo)=>{
-      this.messageService.add('Successfully uploaded photo!');
       this.photosListComponent.getPhotos();
     })
 
@@ -39,7 +37,9 @@ export class CreateBarComponent implements OnInit {
     let photoFile = target.files[0];
     this.photo.photo = photoFile;
   }
-  constructor(private photoService: PhotoService, private messageService: MessageService, private photosListComponent: PhotosListComponent ) { }
+  constructor(
+    private photoService: PhotoService,
+    private photosListComponent: PhotosListComponent ) { }
 
   ngOnInit(): void {
 

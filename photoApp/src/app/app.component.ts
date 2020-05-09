@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {LoginService} from './core/login.service'
 import { Router } from '@angular/router';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,7 @@ export class AppComponent implements OnInit {
   title = 'photoApp';
   isLoggedIn: boolean;
   warning: boolean;
-  constructor(private loginService: LoginService, private router: Router){}
+  constructor(private loginService: LoginService, private router: Router, private _flashMessagesService: FlashMessagesService){}
 
   onLogout(){
     this.loginService.logOut();
@@ -23,7 +24,8 @@ export class AppComponent implements OnInit {
 
   onPhotos(){
     if(!this.isLoggedIn){
-      return this.warning = true; // change this to flash message
+      this._flashMessagesService.show('Log in first!',{ cssClass: 'alert-danger',timeout: 1500 } );
+      return;
     }
     this.router.navigate(['photos'])
   }
