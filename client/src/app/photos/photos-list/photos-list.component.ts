@@ -51,7 +51,7 @@ export class PhotosListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPhotos();
-    this.photoUrl = this.photoService.baseUrl + 'static/';
+    this.photoUrl = this.photoService.baseUrl;
   }
 
 }

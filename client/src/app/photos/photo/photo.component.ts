@@ -37,7 +37,7 @@ export class PhotoComponent implements OnInit {
 
   ngOnInit(): void {
       this.getPhoto(); // fetch the photo from server
-      this.photoUrl = this.photoService.baseUrl + 'static/'; //server url
+      this.photoUrl = this.photoService.baseUrl; //server url
   }
 
 }
