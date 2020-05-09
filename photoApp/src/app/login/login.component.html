@@ -1,0 +1,43 @@
+<div class="container">
+  <form (ngSubmit)="onLogin(username.value, password.value)" #loginForm="ngForm">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username"
+               #username="ngModel" name="username" required placeholder="Copy username below" [ngModel]=''>
+        Username: <strong>admin123</strong>
+        <div *ngIf="username.invalid && (username.dirty || username.touched)"
+             class="alert alert-danger">
+           <div *ngIf="username.errors.required">
+             Username is required!
+           </div>
+        </div>
+
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="text" class="form-control" id="password" #password = 'ngModel' required name="password" placeholder="Copy Password Below" [ngModel]=''>
+        Password: <strong>password</strong>
+
+       <div *ngIf="password.invalid && (password.dirty || password.touched)"
+            class="alert alert-danger">
+          <div *ngIf="password.errors.required">
+            Password is required!
+          </div>
+       </div>
+      </div>
+
+
+      <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
+      <button type="button" class="btn btn-primary"
+        (click)="loginForm.resetForm({})">Clear</button>
+      <div *ngIf='wrongCredentials'>
+        <br />
+        <div class="alert alert-danger">
+          <strong>Wrong credentials!</strong>
+        </div>
+      </div>
+
+  </form>
+
+</div>

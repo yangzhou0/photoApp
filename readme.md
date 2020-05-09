@@ -1,5 +1,24 @@
-# Assignment #7 - Final Project
+# Assignment #7 - Angular
 
-The description of this assignment can be found in Canvas at [Assignment #7/Final](https://canvas.harvard.edu/courses/54354/assignments/249116) (Spring 2019)
+## Intro:
+This is an integration of Angular and Node. I made some improvements from [Assignment 6 project](https://github.com/HarvardDCENode/assignment-6-yangzhou93)
 
-You should build your application in this repo cloned for you in Github Classroom. You'll submit your project and github URLs in Canvas.
+## How to use:
+
+
+## Functionality:
+
+1. CRUD operations are implemented:
+ + Home pages Read all the photos from server
+ + User can Create new photo by utilizing the Photo Upload box on the top of the home page
+ + Updating photo function can be found by clicking into each individual photo
+ + User can delete each photo by hitting the delete button
+
+2. Messages component on the top of the home page provides feedback to users
+
+3. Validation is applied to photo uploading and editing forms
+
+4. AppRoutingModule is used to navigate between components
+
+5. Utilize HttpClient in PhotoService to interact with data on MongoDB using REST APIs
+>>>>>>> login

@@ -1,0 +1,37 @@
+<button type="button" class="btn btn-primary" name="button" (click) = "toggleEdit(true)">Edit Photo</button>
+<div *ngIf = 'editing' class="container">
+    <h1>Update photo@ID: {{photo._id}}</h1>
+    <form #editPhotoForm = 'ngForm' (ngSubmit)="updatePhoto(photo._id,editPhotoForm.value)">
+      <div class="form-group">
+        <label for="description">Descripion</label>
+        <input type="text" class="form-control"
+        [ngModel]="photo.description" name="description"  required #description="ngModel">
+        <div [hidden] = "!description.valid">
+          <!-- displaying the data right below the input box -->
+           Editing: <strong>{{editPhotoForm.value.description}}</strong>
+        </div>
+        <!-- validate if the data has been entered -->
+          <div [hidden]="description.valid"
+            class="alert alert-danger">
+            description is required
+          </div>
+      </div>
+
+      <div class="form-group">
+        <label for="hashtag">Hashtag</label>
+        <input type="text" class="form-control" id="hashtag"
+        [ngModel]="photo.hashtag" name="hashtag" required #hashtag = "ngModel">
+        <div [hidden]="!hashtag.valid">
+          Editing: <strong>{{hashtag.value}}</strong>
+        </div>
+          <div [hidden]="hashtag.valid"
+            class="alert alert-danger">
+            hashtag is required
+          </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="editPhotoForm.invalid">Submit</button>
+      <button type="button" class="btn btn-primary" name="button" (click) = "toggleEdit(false)">Cancel</button>
+
+    </form>
+</div>

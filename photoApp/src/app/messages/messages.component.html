@@ -1,0 +1,8 @@
+<!-- message box on the top of the page -->
+<h2>Messages</h2>
+<div *ngIf='messageService.messages.length'>
+  <button class="btn btn-primary"
+          (click)="messageService.clear()">clear</button>
+          <!-- display all messages if theres any -->
+  <div *ngFor='let message of messageService.messages'> {{message}} </div>
+</div>

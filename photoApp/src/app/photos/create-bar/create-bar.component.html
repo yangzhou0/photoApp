@@ -1,0 +1,77 @@
+<div class="container">
+
+<h1>Photo Upload</h1>
+  <form (ngSubmit)="onSubmit()" #newPhotoForm="ngForm">
+    <div [hidden]="newPhotoForm.submitted">
+      <div class="form-group">
+        <label for="description">description</label>
+        <input type="text" class="form-control" id="description"
+               #description="ngModel"
+               name="description"
+               required
+               minlength="4"
+               placeholder="description"
+               [(ngModel)] = "photo.description">
+
+              <!-- check form validation and react accordingly to provide feedback to user -->
+        <div *ngIf="description.invalid && (description.dirty || description.touched)"
+             class="alert alert-danger">
+
+           <div *ngIf="description.errors.required">
+             Description is required!
+           </div>
+           <div *ngIf="description.errors.minlength">
+             Description must be at least 4 characters long.
+           </div>
+
+        </div>
+
+      </div>
+
+      <div class="form-group">
+        <label for="hashtag">Hashtag</label>
+        <input type="text" class="form-control" id="hashtag"
+               required
+               name="hashtag"
+               placeholder="#"
+               #hashtag = 'ngModel'
+               [(ngModel)] = "photo.hashtag">
+       <div *ngIf="hashtag.invalid && (hashtag.dirty || hashtag.touched)"
+            class="alert alert-danger">
+
+          <div *ngIf="hashtag.errors.required">
+            Hashtag is required!
+          </div>
+
+       </div>
+      </div>
+
+      <div class="form-group">
+        <label for="photo">Photo</label>
+        <!-- once a file is selected, handleFileInput function is triggered to handle the file selected -->
+        <input type="file" required accept = "image/*" name="photo" id='photo' [ngModel] = "" (change)="handleFileInput($event.target)">
+      </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="newPhotoForm.invalid">Submit</button>
+      <button type="button" class="btn btn-primary"
+        (click)="newPhotoForm.resetForm({})">Reset</button>
+    </div>
+      <!-- once form is submiteed , this form is displayed as a feedback to user -->
+      <div *ngIf="newPhotoForm.submitted">
+        <h2>You submitted the following:</h2>
+        <div class="row">
+          <div class="col-xs-3">Description</div>
+          <div class="col-xs-9">{{ newPhotoForm.value.description }}</div>
+        </div>
+        <div class="row">
+          <div class="col-xs-3">Hashtag</div>
+          <div class="col-xs-9">{{ newPhotoForm.value.hashtag }}</div>
+        </div>
+
+        <br>
+        <button class="btn btn-primary" (click)="newPhotoForm.resetForm({})">Upload another one</button>
+      </div>
+
+  </form>
+
+</div>
