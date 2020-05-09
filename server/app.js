@@ -41,7 +41,7 @@ app.use('/users', usersRouter);
 app.use('/img',imgRouter);
 app.use('/api/photos', apiphotos);
 app.use('/api/users', apiusers);
-app.use('/', express.static('../client/dist'));
+app.use('/', express.static('../client/photoApp/dist'));
 
 
 // catch 404 and forward to error handler
