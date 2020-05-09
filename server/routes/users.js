@@ -11,7 +11,7 @@ router.get('/login',(req,res,next)=>{
 //clear session.user when log out
 router.get('/logout',(req,res,next)=>{
   req.session.user = undefined;
-  res.redirect('/');
+  res.redirect('/home');
 })
 
 //when authentication succeeds, redirect to homepage and set session.user = username.
@@ -20,7 +20,7 @@ router.post('/login',(req,res,next)=>{
   let password = req.body.password;
   if (auth.authorize(username,password)){
     req.session.user = username;
-    res.redirect('/');
+    res.redirect('/home');
   }
   else{
     req.flash("wrongCredentials", "No username:password combination found, retry");

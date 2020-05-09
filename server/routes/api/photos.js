@@ -41,7 +41,7 @@ router.get('/:photoid', (req, res, next)=>{
 //create a new photo
 router.post('/',upload.single('photo'),async (req,res,next)=>{
   try{
-    let imageUrl = 'uploaded-images/' + req.file.filename;
+    let imageUrl = 'static/uploaded-images/' + req.file.filename;
     let photoSchema = {
       description:req.body.description,
       imageUrl:imageUrl,

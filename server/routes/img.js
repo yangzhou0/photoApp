@@ -77,11 +77,11 @@ router.post('/',upload.single('image'),(req,res)=>{
 router.use(function(err,req,res,next){
   if(err.message == 'Not an image'){
     req.flash("uploadError", "Only upload image files, ex: jpg|jpeg|png|gif");
-    res.redirect('/');
+    res.redirect('/home');
   }
   else if (err.message == 'Upload Image Error'){
     req.flash("uploadError", "Failed to save");
-    res.redirect('/');
+    res.redirect('/home');
   }
   else{
     next(err);
