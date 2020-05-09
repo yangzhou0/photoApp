@@ -58,7 +58,7 @@ router.delete('/',auth.required,(req,res)=>{
 
 //Create a new image record on DB when POST to '/'
 router.post('/',upload.single('image'),(req,res)=>{
-  let imageUrl = 'uploaded-images/' + req.file.filename;
+  let imageUrl = 'static/uploaded-images/' + req.file.filename;
   let photoSchema = {
     description:req.body.description,
     imageUrl:imageUrl,
