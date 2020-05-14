@@ -14,7 +14,7 @@ var apiusers = require('./routes/api/users');
 
 var app = express();
 //connect to MongoDB Atlas
-mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@harvard-cscie31-po5kp.mongodb.net/test?retryWrites=true&w=majority`,{ useUnifiedTopology: true, useNewUrlParser: true,  useFindAndModify: false  })
+mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@harvard-cscie31-po5kp.mongodb.net/asg7?retryWrites=true&w=majority`,{ useUnifiedTopology: true, useNewUrlParser: true,  useFindAndModify: false  })
 
 //middlewares
 app.use(logger('dev'));
