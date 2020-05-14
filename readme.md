@@ -1,12 +1,15 @@
-# Assignment #7 - Angular
+## Assignment #7 - Angular
 
-## Intro:
-This is an integration of Angular and Node. I made some improvements from [Assignment 6 project](https://github.com/HarvardDCENode/assignment-6-yangzhou93)
+### Intro:
+This is an integration of Angular and Node. Angular project is compiled and served as a static file on the express server. I made some improvements from [Assignment 6 project](https://github.com/HarvardDCENode/assignment-6-yangzhou93)
 
-## How to use:
+### How to use:
+[ClickMe](http://167.99.14.231:3000/)
+__Remember__: The predetermined the credentials are:
+> Username: __admin123__
+> Password: __password123__
 
-
-## Functionality:
+### Functionality:
 
 1. CRUD operations are implemented:
  + Home pages Read all the photos from server
@@ -14,11 +17,12 @@ This is an integration of Angular and Node. I made some improvements from [Assig
  + Updating photo function can be found by clicking into each individual photo
  + User can delete each photo by hitting the delete button
 
-2. Messages component on the top of the home page provides feedback to users
+2. __New__: Flash message is used to display notification when delete a photo or update a photo
 
 3. Validation is applied to photo uploading and editing forms
 
-4. AppRoutingModule is used to navigate between components
+4. AppRoutingModule is used to navigate between components. __New__: nested routes are used under ```photosComponent```
 
 5. Utilize HttpClient in PhotoService to interact with data on MongoDB using REST APIs
->>>>>>> login
+
+6. __New__: A login page is applied and Angular responds accordingly based on if user is logged in or not
