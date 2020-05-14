@@ -9,19 +9,12 @@ var mongoose = require('mongoose');
 require('dotenv').config();
 
 //customer modules
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var imgRouter = require('./routes/img');
 var apiphotos = require('./routes/api/photos');
 var apiusers = require('./routes/api/users');
 
 var app = express();
 //connect to MongoDB Atlas
-mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@harvard-cscie31-po5kp.mongodb.net/asg7?retryWrites=true&w=majority`,{ useUnifiedTopology: true, useNewUrlParser: true,  useFindAndModify: false  })
-
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
+mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@harvard-cscie31-po5kp.mongodb.net/test?retryWrites=true&w=majority`,{ useUnifiedTopology: true, useNewUrlParser: true,  useFindAndModify: false  })
 
 //middlewares
 app.use(logger('dev'));
@@ -36,9 +29,6 @@ saveUninitialized: "true"
 
 //routes
 app.use('/static', express.static(path.join(__dirname, 'public')));
-app.use('/home', indexRouter);
-app.use('/users', usersRouter);
-app.use('/img',imgRouter);
 app.use('/api/photos', apiphotos);
 app.use('/api/users', apiusers);
 app.use('/', express.static('../client/dist/photoApp'));
