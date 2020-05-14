@@ -19,6 +19,7 @@ export class PhotoService {
   }
 
   getPhoto(photoId): Observable<any>{
+    //this observable returns the full response from the server, including headers, status, etc. 
     return this.http.get(`${this.baseUrl}api/photos/${photoId}`,{ observe: 'response' })
   }
 

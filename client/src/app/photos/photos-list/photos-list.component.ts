@@ -31,6 +31,7 @@ export class PhotosListComponent implements OnInit {
     if (confirm(`Are you sure you want to delete id#: ${photo._id}?`)){
       this.photoService.deletePhoto(photo._id).subscribe(()=>{
         this.getPhotos();
+        //if delete a picture, a flash message is displayed
         this._flashMessagesService.show(`Deleted ${photo._id}`, { cssClass: 'alert-success',timeout: 4000 } );
       });
     }
@@ -39,6 +40,7 @@ export class PhotosListComponent implements OnInit {
   //like the photo
   upvote(photo){
     photo.likes += 1;
+    //sync the likes property on MongoDB
     this.photoService.updatePhoto(photo._id,{likes:photo.likes}).subscribe(()=>{
     }
     )
@@ -50,7 +52,7 @@ export class PhotosListComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.getPhotos();
+    this.getPhotos(); //fetch photos info from MongoDB
     this.photoUrl = this.photoService.baseUrl;
   }
 

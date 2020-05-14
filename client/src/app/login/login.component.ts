@@ -9,21 +9,23 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
-  wrongCredentials:boolean = false;
+  wrongCredentials:boolean = false; // initially set to false, toggle to true if user provided wrong credentials
   constructor(private authService: AuthService, private router: Router, private loginService: LoginService, private appComponent: AppComponent) { }
 
   onLogin(username,password){
+    //when user clicked login button from login form, triger the authService to make calls to server
     this.authService.login({username:username, password:password}).subscribe((success)=>{
-      if (success){
-        // navigate to photos component
+      if (success){ //success is true if server checked the credentials
         this.loginService.logIn(username);
-        //triger app.component ngOnInit
+        //update the login information from appComponent
         this.appComponent.syncLoginInfo();
+        // navigate to photos component
         this.router.navigate(['photos']);
 
       }
-      else{
+      else{ // get here if success if false
         this.wrongCredentials = true;
       }
     })

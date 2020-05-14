@@ -14,8 +14,10 @@ export class PhotosComponent implements OnInit {
   isLoggedIn: boolean
 
   checkLoggedIn(){
+    //sync with loginService
     this.isLoggedIn = this.loginService.isLoggedIn
     if(!this.isLoggedIn){
+      //redirect to login page if not loggedin
       this.router.navigate(['login'])
     }
   }

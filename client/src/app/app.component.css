@@ -1,7 +1,10 @@
 div{
+  /* make text in the center */
   text-align: center
 }
+
 span{
+  /* make flashmessage width 50% */
   display:block;
   margin:0 auto;
   width: 50%
