@@ -1,4 +1,4 @@
-## Assignment #7 - Angular
+## Assignment #7 - Final Project
 
 ### Intro:
 This is an integration of Angular and Node. Angular project is compiled and served as a static file on the express server. I made some improvements from [Assignment 6 project](https://github.com/HarvardDCENode/assignment-6-yangzhou93)
