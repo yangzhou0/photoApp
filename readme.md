@@ -4,7 +4,7 @@
 This is an integration of Angular and Node. Angular project is compiled and served as a static file on the express server. I made some improvements from [Assignment 6 project](https://github.com/HarvardDCENode/assignment-6-yangzhou93)
 
 ### How to use:
-[ClickMe](http://167.99.14.231:8000/)
+[ClickMe](http://167.99.14.231:8000/login)
 
 __Remember__: The predetermined credentials are:
 > Username: __admin123__
