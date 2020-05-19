@@ -39,5 +39,5 @@ userSchema.pre('save',function(next){
 
 
 
-let userModel = mongoose.model('User',photoSchema);
+let userModel = mongoose.model('User',userSchema);
 module.exports = userModel;

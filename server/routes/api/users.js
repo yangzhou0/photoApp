@@ -7,7 +7,7 @@ router.use((req,res,next)=>{
   res.set({
     'Access-Control-Allow-Origin': '*', // allow request from all origins
     'Access-Control-Allow-Methods': '*', // allow all request methods, ex:GET, POST, PUT, DELETE, OPTIONS
-    'access-control-allow-headers': 'content-type' // allow request headers: content-type
+    'Access-Control-Allow-Headers': 'content-type' // allow request headers: content-type
 
   });
   next();
