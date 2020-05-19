@@ -29,4 +29,8 @@ router.post('/logout',(req,res,next)=>{
   res.json('logged out.')
 })
 
+router.post('/register'(req,res,next)=>{
+  
+})
+
 module.exports = router;
