@@ -16,6 +16,7 @@ import { PhotosListComponent } from './photos/photos-list/photos-list.component'
 
 //third party modules
 import { FlashMessagesModule } from 'angular2-flash-messages';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
     PhotoComponent,
     EditPhotoFormComponent,
     LoginComponent,
-    PhotosListComponent
+    PhotosListComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
