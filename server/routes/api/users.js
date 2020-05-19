@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var auth  = require('../../utilities/auth');
+var userModel = require('../../models/userModel');
 
 router.use((req,res,next)=>{
   res.set({
@@ -30,7 +31,17 @@ router.post('/logout',(req,res,next)=>{
 })
 
 router.post('/register',(req,res,next)=>{
-
+  user = new userModel(
+    {
+      email:req.body.email,
+      name:req.body.name
+    }
+  )
+  user.setPassword(req.body.password)
+  user.save().then((user)=>{
+    req.session.user=user.name
+    res.status(200).json(user);
+  })
 })
 
 module.exports = router;
