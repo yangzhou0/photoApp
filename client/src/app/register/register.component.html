@@ -1,5 +1,18 @@
 <div class="container">
-  <form (ngSubmit)="onRegister(email.value, password.value)" #registerForm="ngForm">
+  <form (ngSubmit)="onRegister(name.value,email.value, password.value)" #registerForm="ngForm">
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name"
+             #name="ngModel" name="name" required placeholder="Your name" [ngModel]=''>
+      <div *ngIf="name.invalid && (name.dirty || name.touched)"
+           class="alert alert-danger">
+         <div *ngIf="name.errors.required">
+           Name is required!
+         </div>
+      </div>
+    </div>
+
       <div class="form-group">
         <label for="email">Email</label>
         <input type="text" class="form-control" id="email"
@@ -10,7 +23,6 @@
              Email is required!
            </div>
         </div>
-
       </div>
 
       <div class="form-group">

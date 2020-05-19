@@ -8,9 +8,9 @@ import {RegisterService} from '../core/register.service'
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  onRegister(email,password){
-    this.registerService.register({email:email, password:password}).subscribe(()=>{
-      
+  onRegister(name,email,password){
+    this.registerService.register({name:name, email:email, password:password}).subscribe(()=>{
+
     })
 
   }
