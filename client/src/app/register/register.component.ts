@@ -9,9 +9,12 @@ import {RegisterService} from '../core/register.service'
 })
 export class RegisterComponent implements OnInit {
   onRegister(email,password){
+    this.registerService.register({email:email, password:password}).subscribe(()=>{
+      
+    })
 
   }
-  constructor() { }
+  constructor(private registerService: RegisterService) { }
 
   ngOnInit(): void {
   }

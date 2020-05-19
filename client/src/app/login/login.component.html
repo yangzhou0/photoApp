@@ -1,13 +1,13 @@
 <div class="container">
-  <form (ngSubmit)="onLogin(username.value, password.value)" #loginForm="ngForm">
+  <form (ngSubmit)="onLogin(email.value, password.value)" #loginForm="ngForm">
       <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" class="form-control" id="username"
-               #username="ngModel" name="username" required placeholder="Copy username below" [ngModel]=''>
-        Username: <strong>admin123</strong>
-        <div *ngIf="username.invalid && (username.dirty || username.touched)"
+        <label for="email">Email</label>
+        <input type="text" class="form-control" id="email"
+               #email="ngModel" name="email" required placeholder="Copy email below" [ngModel]=''>
+        Email: <strong>admin123</strong>
+        <div *ngIf="email.invalid && (email.dirty || email.touched)"
              class="alert alert-danger">
-           <div *ngIf="username.errors.required">
+           <div *ngIf="email.errors.required">
              Username is required!
            </div>
         </div>

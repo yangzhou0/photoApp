@@ -13,10 +13,10 @@ router.use((req,res,next)=>{
 })
 
 router.post('/login',(req,res,next)=>{
-  let username = req.body.username;
+  let email = req.body.email;
   let password = req.body.password;
-  if (auth.authorize(username,password)){
-    req.session.user = username;
+  if (auth.authorize(email,password)){
+    req.session.user = email;
     res.json(true);
   }
   else{
@@ -29,8 +29,8 @@ router.post('/logout',(req,res,next)=>{
   res.json('logged out.')
 })
 
-router.post('/register'(req,res,next)=>{
-  
+router.post('/register',(req,res,next)=>{
+
 })
 
 module.exports = router;
