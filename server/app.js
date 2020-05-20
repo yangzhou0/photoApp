@@ -6,6 +6,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
 var mongoose = require('mongoose');
+const passport = require('passport');
+
 require('dotenv').config();
 
 //customer modules
@@ -17,6 +19,7 @@ var app = express();
 mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@harvard-cscie31-po5kp.mongodb.net/test?retryWrites=true&w=majority`,{ useUnifiedTopology: true, useNewUrlParser: true,  useFindAndModify: false  })
 
 //middlewares
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -26,6 +29,8 @@ secret:"cscie31",
 resave: "true",
 saveUninitialized: "true"
 }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 //routes
 app.use('/static', express.static(path.join(__dirname, 'public'))); //serve static files. In my project, those would be pictures
