@@ -1,3 +1,4 @@
+const passport = require('passport');
 var express = require('express');
 var router = express.Router();
 var auth  = require('../../utilities/auth');
@@ -13,17 +14,11 @@ router.use((req,res,next)=>{
   next();
 })
 
-router.post('/login',(req,res,next)=>{
-  let email = req.body.email;
-  let password = req.body.password;
-  if (auth.authorize(email,password)){
-    req.session.user = email;
-    res.json(true);
-  }
-  else{
-    res.json(false);
-  }
-})
+router.post('/login',
+  passport.authenticate('local', { failureRedirect: '/login' }),
+  function(req, res) {
+    res.redirect('/photos');
+  });
 
 router.post('/logout',(req,res,next)=>{
   req.session.user = undefined;

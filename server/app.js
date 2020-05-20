@@ -8,8 +8,8 @@ var session = require('express-session');
 var mongoose = require('mongoose');
 const passport = require('passport');
 
+require('./controller/passport')
 require('dotenv').config();
-
 //customer modules
 var apiphotos = require('./routes/api/photos');
 var apiusers = require('./routes/api/users');
