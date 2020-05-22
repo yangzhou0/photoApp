@@ -9,7 +9,7 @@ export class RegisterService {
   baseUrl = environment.baseUrl;
 
   register(data){
-    return this.http.post(`${this.baseUrl}api/users/register`,data) // return observerable
+    return this.http.post(`${this.baseUrl}api/users/register`,data,{ withCredentials: true }) // return observerable
   }
   constructor(
     private http: HttpClient

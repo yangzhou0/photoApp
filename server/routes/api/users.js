@@ -46,8 +46,10 @@ router.post('/register',(req,res,next)=>{
   )
   user.setPassword(req.body.password)
   user.save().then((user)=>{
-    req.session.user=user.name
-    res.status(200).json(user);
+    req.login(user, function(err) {
+      if (err) { return next(err); }
+      return res.status(200).json(user);
+    });
   })
 })
 
