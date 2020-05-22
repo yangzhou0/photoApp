@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {LoginService} from './core/login.service'
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
+import {AuthService} from './core/auth.service'
+
 
 @Component({
   selector: 'app-root',
@@ -11,14 +12,18 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 export class AppComponent implements OnInit {
   username: string = ''
   title = 'photoApp';
-  isLoggedIn: boolean;
+  isLoggedIn: boolean = true;
   warning: boolean;
-  constructor(private loginService: LoginService, private router: Router, private _flashMessagesService: FlashMessagesService){}
+  constructor(
+    private router: Router,
+    private _flashMessagesService: FlashMessagesService,
+    private authService: AuthService){}
 
   onLogout(){
     //when user click logout, sync the logOut throughout the whole angular site
-    this.loginService.logOut();
-    this.syncLoginInfo();
+    this.authService.logout().subscribe(res=>{
+      console.log(res)
+    })
     this.router.navigate(['login'])
 
   }
@@ -32,13 +37,6 @@ export class AppComponent implements OnInit {
     this.router.navigate(['photos'])
   }
 
-  syncLoginInfo(){
-    //when logout is clicked from appComponent.html or login button is clicked from login.html,
-    //this syncLoginInfo function is called to update the properties on this component properly
-    this.isLoggedIn = this.loginService.isLoggedIn;
-    this.username = this.loginService.username
-    this.warning = false;
-  }
 
   ngOnInit(): void {
   }

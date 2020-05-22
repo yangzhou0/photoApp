@@ -4,24 +4,36 @@ var router = express.Router();
 var auth  = require('../../utilities/auth');
 var userModel = require('../../models/userModel');
 
-router.use((req,res,next)=>{
+router.use((req, res, next)=>{
   res.set({
-    'Access-Control-Allow-Origin': '*', // allow request from all origins
-    'Access-Control-Allow-Methods': '*', // allow all request methods, ex:GET, POST, PUT, DELETE, OPTIONS
-    'Access-Control-Allow-Headers': 'content-type' // allow request headers: content-type
-
+  // allow any domain, allow REST methods we've implemented
+    'Access-Control-Allow-Origin': req.get('Origin') || '*',
+    'Access-Control-Allow-Credentials': 'true',
+    'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,OPTIONS',
+    "Access-Control-Allow-Headers": "Content-Type",
+  // Set content-type for all api requests
+    'Content-type':'application/json'
   });
+  if (req.method == 'OPTIONS'){
+    return res.status(200).end();
+  }
   next();
-})
+});
 
-router.post('/login',
-  passport.authenticate('local', { failureRedirect: '/login' }),
-  function(req, res) {
-    res.redirect('/photos');
-  });
+router.post('/login', function(req, res, next) {
+  passport.authenticate('local', function(err, user, info) {
+    if (err) { return next(err); }
+    if (!user) { return res.json('invalid credentials'); }
+    req.login(user, function(err) {
+      if (err) { return next(err); }
+      console.log('req.user after login: ',req.user)
+      return res.json(true);
+    });
+  })(req, res, next);
+});
 
-router.post('/logout',(req,res,next)=>{
-  req.session.user = undefined;
+router.get('/logout',(req,res,next)=>{
+  req.logout();
   res.json('logged out.')
 })
 
@@ -38,5 +50,16 @@ router.post('/register',(req,res,next)=>{
     res.status(200).json(user);
   })
 })
+
+router.get('/currentUser', (req, res, next)=>{
+  console.log('req.user when loading photos: ',req.user)
+  const email = req.user.email;
+   userModel.findOne({'email': email}, (err, user) => {
+      if (err){
+        return res.send("Error!");
+      }
+      res.json( user );
+    });
+});
 
 module.exports = router;

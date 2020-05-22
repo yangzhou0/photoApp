@@ -3,7 +3,7 @@ var auth = {
     if(req.user){
       return next();
     }else{
-      res.redirect('/login');
+      return res.sendStatus(401);
     }
   }
 }

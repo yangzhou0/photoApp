@@ -19,12 +19,13 @@ passport.use(new LocalStrategy(
   }
 ));
 
-passport.serializeUser(function(user, done) {
-  done(null, user.id);
+passport.serializeUser(function(user, cb) {
+  cb(null, user.email);
 });
 
-passport.deserializeUser(function(id, done) {
-  User.findById(id, function (err, user) {
-    done(err, user);
+passport.deserializeUser(function(id, cb) {
+  User.findOne({'email': id}, function (err, user) {
+    if (err) { return cb(err); }
+    cb(null, user);
   });
 });

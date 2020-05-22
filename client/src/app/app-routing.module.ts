@@ -23,8 +23,8 @@ const routes: Routes = [
     ]},
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
-  { path: '', redirectTo: '/photos', pathMatch: 'full'}, //www.xx.com would direct to photos component
-  { path: '**', pathMatch: 'full', redirectTo: '/photos' } // wildcard, redirect to homepage if no url matched
+  { path: '', redirectTo: '/login', pathMatch: 'full'}, //www.xx.com would direct to photos component
+  { path: '**', pathMatch: 'full', redirectTo: '/login' } // wildcard, redirect to homepage if no url matched
 ]; // sets up routes constant where you define your routes
 
 

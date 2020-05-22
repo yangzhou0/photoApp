@@ -15,11 +15,11 @@ export class PhotoService {
 
   //CRUD operations as follows. returning observable to accomodate asynchronous call
   getPhotos(): Observable<any> {
-    return this.http.get(`${this.baseUrl}api/photos`);
+    return this.http.get(`${this.baseUrl}api/photos`,{ withCredentials: true });
   }
 
   getPhoto(photoId): Observable<any>{
-    //this observable returns the full response from the server, including headers, status, etc. 
+    //this observable returns the full response from the server, including headers, status, etc.
     return this.http.get(`${this.baseUrl}api/photos/${photoId}`,{ observe: 'response' })
   }
 

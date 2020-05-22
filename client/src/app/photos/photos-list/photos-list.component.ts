@@ -3,6 +3,7 @@ import { Component,Input, OnInit } from '@angular/core';
 //import custome modules
 import { IPhoto } from '../../shared/interface';
 import {PhotoService} from '../../core/photo.service';
+import {AuthService} from '../../core/auth.service';
 import {PhotosComponent} from '../photos.component';
 
 //thirparty modules
@@ -17,13 +18,20 @@ export class PhotosListComponent implements OnInit {
   photos
   subTitle: string = 'Gallery'
   photoUrl: string
-  username: string
+  author: string = ''
   //fetch all photos from MongoDB from ngOnInit
   getPhotos(): void {
     this.photoService.getPhotos()
         .subscribe(photos => {
           this.photos = photos.reverse();
           });
+  }
+
+  getCurrentUser(): void {
+    this.authService.getCurrentUser().subscribe((user: object) =>{
+      console.log('user in angular: ', user)
+      this.author = user['name']
+    })
   }
 
   //delete particular photo
@@ -48,12 +56,15 @@ export class PhotosListComponent implements OnInit {
 
   constructor(private photoService: PhotoService,
     private photosComponent: PhotosComponent,
-    private _flashMessagesService: FlashMessagesService) { }
+    private _flashMessagesService: FlashMessagesService,
+    private authService: AuthService) { }
 
 
   ngOnInit(): void {
-    this.getPhotos(); //fetch photos info from MongoDB
+
     this.photoUrl = this.photoService.baseUrl;
+    this.getPhotos(); //fetch photos info from MongoDB
+    this.getCurrentUser();
   }
 
 }

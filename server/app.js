@@ -14,21 +14,21 @@ require('dotenv').config();
 var apiphotos = require('./routes/api/photos');
 var apiusers = require('./routes/api/users');
 
+
 var app = express();
 //connect to MongoDB Atlas
 mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@harvard-cscie31-po5kp.mongodb.net/test?retryWrites=true&w=majority`,{ useUnifiedTopology: true, useNewUrlParser: true,  useFindAndModify: false  })
 
 //middlewares
-
+app.use(cookieParser('cscie31-secret'));
+app.use(session({
+  secret:"cscie31",
+  resave: "true",
+  saveUninitialized: "true"
+}));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser('cscie31-secret'));
-app.use(session({
-secret:"cscie31",
-resave: "true",
-saveUninitialized: "true"
-}));
 app.use(passport.initialize());
 app.use(passport.session());
 

@@ -12,8 +12,17 @@ export class AuthService {
 
   //call server's user api to verify if credentials are correct.
   login(data){
-    return this.http.post(`${this.baseUrl}api/users/login`,data) // return observerable
+    return this.http.post(`${this.baseUrl}api/users/login`,data, { withCredentials: true }) // return observerable
   }
+
+  logout(){
+    return this.http.get(`${this.baseUrl}api/users/logout`,{ withCredentials: true })
+  }
+
+  getCurrentUser(){
+    return this.http.get(`${this.baseUrl}api/users/currentUser`, { withCredentials: true });
+  }
+
   constructor(
     private http: HttpClient
   ) { }

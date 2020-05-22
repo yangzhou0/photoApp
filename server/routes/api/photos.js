@@ -5,19 +5,27 @@ var photoController = require('../../controller/photoController');
 var PhotoService = photoController.PhotoService; //PhotoService class to make my code DRY
 var multer  = require('multer');
 var upload = multer({storage: photoController.storage, fileFilter:photoController.filter }) // customize storage and filter option for multer
+var auth  = require('../../utilities/auth');
 
 
-router.use((req,res,next)=>{
+router.use((req, res, next)=>{
   res.set({
-    'Access-Control-Allow-Origin': '*', // allow request from all origins
-    'Access-Control-Allow-Methods': '*', // allow all request methods, ex:GET, POST, PUT, DELETE, OPTIONS
-    'Access-Control-Allow-Headers': 'content-type' // allow request headers: content-type
+  // allow any domain, allow REST methods we've implemented
+    'Access-Control-Allow-Origin': req.get('Origin') || '*',
+    'Access-Control-Allow-Credentials': 'true',
+    'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,OPTIONS',
+    "Access-Control-Allow-Headers": "Content-Type",
+  // Set content-type for all api requests
+    'Content-type':'application/json'
   });
+  if (req.method == 'OPTIONS'){
+    return res.status(200).end();
+  }
   next();
-})
+});
 
 // list all photos
-router.get('/', (req, res, next)=>{
+router.get('/', auth.required, (req, res, next)=>{
    PhotoService.list()
     .then((photos) => {
       console.log('type before json.stringfy: ' + typeof photos); //object:array
