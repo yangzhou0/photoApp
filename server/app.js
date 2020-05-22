@@ -36,8 +36,8 @@ app.use(passport.session());
 app.use('/static', express.static(path.join(__dirname, 'public'))); //serve static files. In my project, those would be pictures
 app.use('/api/photos', apiphotos); //handle photos api calls: CRUD actions
 app.use('/api/users', apiusers); //handle user api calls for login authentication
-app.use('/', express.static('../client/dist/photoApp')); // Link angular front-end to server
-app.use('*', express.static('../client/dist/photoApp')); // if a user refresh a page or enter something unrecognized, redirect to index.html
+// app.use('/', express.static('../client/dist/photoApp')); // Link angular front-end to server
+// app.use('*', express.static('../client/dist/photoApp')); // if a user refresh a page or enter something unrecognized, redirect to index.html
 
 
 // catch 404 and forward to error handler
