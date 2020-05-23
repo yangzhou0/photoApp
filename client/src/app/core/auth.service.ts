@@ -19,6 +19,7 @@ export class AuthService {
   }
 
   logout(){
+    localStorage.removeItem('user')
     return this.http.get(`${this.baseUrl}api/users/logout`)
   }
 
