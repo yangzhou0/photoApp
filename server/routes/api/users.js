@@ -66,15 +66,5 @@ router.post('/register',(req,res,next)=>{
   })
 })
 
-router.get('/currentUser', (req, res, next)=>{
-  console.log('req.user when loading photos: ',req.user)
-  const email = req.user.email;
-   userModel.findOne({'email': email}, (err, user) => {
-      if (err){
-        return res.send("Error!");
-      }
-      res.json( user );
-    });
-});
 
 module.exports = router;
