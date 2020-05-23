@@ -33,10 +33,10 @@
         (click)="loginForm.resetForm({})">Clear</button>
       <a routerLink="/register"><button type="button" class="pull-right btn btn-primary">Register</button></a>
 
-      <div *ngIf='wrongCredentials'>
+      <div *ngIf='failedLogin'>
         <br />
         <div class="alert alert-danger">
-          <strong>Wrong credentials!</strong>
+          <strong>{{failedLoginMessage}}</strong>
         </div>
       </div>
 
