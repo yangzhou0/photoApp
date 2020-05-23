@@ -3,6 +3,8 @@ var express = require('express');
 var router = express.Router();
 var auth  = require('../../utilities/auth');
 var userModel = require('../../models/userModel');
+var userController = require('../../controller/userController');
+var UserService = userController.UserService
 
 router.use((req, res, next)=>{
   res.set({
@@ -37,18 +39,30 @@ router.get('/logout',(req,res,next)=>{
 })
 
 router.post('/register',(req,res,next)=>{
-  user = new userModel(
-    {
-      email:req.body.email,
-      name:req.body.name
+  let email = req.body.email
+  let name = req.body.name
+  let password = req.body.password
+  UserService.findByEmail(email).then(foundUser=>{
+    // if found user, send res with message
+    if (foundUser instanceof Object ){
+      return res.json('Email already registered')
     }
-  )
-  user.setPassword(req.body.password)
-  user.save().then((user)=>{
-    req.login(user, function(err) {
-      if (err) { return next(err); }
-      return res.status(200).json(user);
-    });
+    //if no user found, foundUser is returned as null, which means email hasnt been used.
+    // so its okay to register with the email
+    let user = new userModel(
+      {
+        email:email,
+        name:name
+      }
+    )
+    //hash the password
+    user.setPassword(password)
+    user.save().then((user)=>{
+      req.login(user, function(err) {
+        if (err) { return next(err); }
+        return res.status(200).json(user);
+      });
+    })
   })
 })
 

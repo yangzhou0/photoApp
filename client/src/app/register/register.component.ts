@@ -10,8 +10,11 @@ import {AuthService} from '../core/auth.service'
 export class RegisterComponent implements OnInit {
   onRegister(name,email,password){
     this.authService.register({name:name, email:email, password:password}).subscribe((registeredUser)=>{
-      this.authService.setUser(registeredUser);
-      this.router.navigate(['photos'])
+      if (registeredUser instanceof Object){
+        this.authService.setUser(registeredUser);
+        this.router.navigate(['photos'])
+      }
+
     })
 
   }
