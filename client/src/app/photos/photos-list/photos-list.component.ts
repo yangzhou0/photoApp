@@ -18,7 +18,7 @@ export class PhotosListComponent implements OnInit {
   photos
   subTitle: string = 'Gallery'
   photoUrl: string
-  author: string = ''
+  user: string = ''
   //fetch all photos from MongoDB from ngOnInit
   getPhotos(): void {
     this.photoService.getPhotos()
@@ -30,7 +30,7 @@ export class PhotosListComponent implements OnInit {
   getCurrentUser(): void {
     this.authService.getCurrentUser().subscribe((user: object) =>{
       console.log('user in angular: ', user)
-      this.author = user['name']
+      this.user = user['name']
     })
   }
 
