@@ -23,10 +23,9 @@ router.use((req, res, next)=>{
 router.post('/login', function(req, res, next) {
   passport.authenticate('local', function(err, user, info) {
     if (err) { return next(err); }
-    if (!user) { return res.json('invalid credentials'); }
+    if (!user) { return res.json(info); }
     req.login(user, function(err) {
       if (err) { return next(err); }
-      console.log('req.user after login: ',req.user)
       return res.json(true);
     });
   })(req, res, next);
