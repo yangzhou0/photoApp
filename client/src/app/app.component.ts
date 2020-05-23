@@ -10,9 +10,8 @@ import {AuthService} from './core/auth.service'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  username: string = ''
+  username: string
   title = 'photoApp';
-  isLoggedIn: boolean = true;
   warning: boolean;
   constructor(
     private router: Router,
@@ -28,9 +27,13 @@ export class AppComponent implements OnInit {
 
   }
 
+  checkLogin(): boolean{
+    return this.authService.isLoggedIn();
+  }
+
   onPhotos(){
     //when user click photos button on the upper right, redirect to the gallery if loggedin, otherwise pop a flash message
-    if(!this.isLoggedIn){
+    if(!(this.checkLogin())){
       this._flashMessagesService.show('Log in first!',{ cssClass: 'alert-danger',timeout: 1500 } );
       return;
     }

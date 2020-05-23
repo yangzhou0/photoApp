@@ -31,6 +31,14 @@ export class AuthService {
     return JSON.parse(localStorage.getItem('user'))
   }
 
+  isLoggedIn(){
+    let user = this.getUser();
+    if(user){
+      return true;
+    }
+    return false;
+  }
+
   constructor(
     private http: HttpClient
   ) { }

@@ -4,14 +4,14 @@
     <h3 class="pull-right">Hello {{username}}</h3>
   </div>
   <div class="container">
-    <div *ngIf = "isLoggedIn" class = "pull-right"><button  type="button" class="btn btn-primary" (click)="onLogout()">Logout</button></div>
+    <div class = "pull-right"><button  type="button" class="btn btn-primary" (click)="onLogout()">Logout</button></div>
   </div>
   <div class="container">
     <button class="pull-right btn btn-primary" type="button" name="button" (click)='onPhotos()'>Photos</button>
   </div>
 
   <hr />
-  <span *ngIf = '!isLoggedIn' >
+  <span >
     <flash-messages></flash-messages>
   </span>
 </div>
