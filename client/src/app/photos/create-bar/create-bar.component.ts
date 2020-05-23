@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { IPhoto } from '../../shared/interface';
 import {PhotoService} from '../../core/photo.service';
 import {PhotosComponent} from '../photos.component';
@@ -10,6 +10,8 @@ import {PhotosListComponent} from '../photos-list/photos-list.component';
   styleUrls: ['./create-bar.component.css']
 })
 export class CreateBarComponent implements OnInit {
+  @Input() author;
+
   // hardcoded photo object served as a placeholder for two-way binding with the #newPhotoForm
   photo = {
     description: 'enter some dope description',
@@ -23,6 +25,7 @@ export class CreateBarComponent implements OnInit {
     formData.append('photo', this.photo.photo);
     formData.append('hashtag', this.photo.hashtag);
     formData.append('description', this.photo.description);
+    formData.append('author', this.author);
 
     //call photoService.uploadPhoto with data from form to POST API and interact with MongoDB through back-end server
     this.photoService.uploadPhoto(formData).subscribe((photo)=>{

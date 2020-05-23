@@ -54,7 +54,8 @@ router.post('/',upload.single('photo'),async (req,res,next)=>{
       description:req.body.description,
       imageUrl:imageUrl,
       originalName:req.file.originalname,
-      hashtag: req.body.hashtag
+      hashtag: req.body.hashtag,
+      author: req.body.author
     };
     let photo = await PhotoService.create(photoSchema);
     res.status(201).json(photo);
