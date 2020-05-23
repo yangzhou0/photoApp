@@ -4,8 +4,8 @@ import {PhotosComponent} from './photos/photos.component';
 import {PhotoComponent} from './photos/photo/photo.component';
 import { PhotosListComponent } from './photos/photos-list/photos-list.component';
 import { RegisterComponent } from './register/register.component';
-
-import {LoginComponent} from './login/login.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuardService } from './core/auth-guard.service';
 
 const routes: Routes = [
   //set up routing
@@ -14,7 +14,8 @@ const routes: Routes = [
     children:[
       {
         path: ':id',
-        component: PhotoComponent
+        component: PhotoComponent,
+        canActivate : [AuthGuardService]
       },
       {
         path: '',

@@ -13,13 +13,16 @@ export class LoginComponent implements OnInit {
   // initially set to false, toggle to true if user provided wrong credentials
   failedLoginMessage: string; // when login failed, display this message
 
-  constructor(private authService: AuthService, private router: Router, private appComponent: AppComponent) { }
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private appComponent: AppComponent
+  ) { }
 
   onLogin(email,password){
     //when user clicked login button from login form, triger the authService to make calls to server
     this.authService.login({email:email, password:password}).subscribe(feedback=>{
       if (feedback instanceof Object){ //success is true if server checked the credentials
-        //update the login information from appComponent
         // navigate to photos component
         this.authService.setUser(feedback);
         this.router.navigate(['photos']);
@@ -31,6 +34,7 @@ export class LoginComponent implements OnInit {
     })
   }
   ngOnInit(): void {
+    
   }
 
 }

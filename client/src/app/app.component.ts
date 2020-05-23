@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   username: string
   title = 'photoApp';
   warning: boolean;
+
   constructor(
     private router: Router,
     private _flashMessagesService: FlashMessagesService,
