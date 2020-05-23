@@ -26,7 +26,7 @@ router.post('/login', function(req, res, next) {
     if (!user) { return res.json(info); }
     req.login(user, function(err) {
       if (err) { return next(err); }
-      return res.json(true);
+      return res.json(user);
     });
   })(req, res, next);
 });

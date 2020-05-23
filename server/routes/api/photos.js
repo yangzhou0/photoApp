@@ -25,7 +25,7 @@ router.use((req, res, next)=>{
 });
 
 // list all photos
-router.get('/', auth.required, (req, res, next)=>{
+router.get('/', (req, res, next)=>{
    PhotoService.list()
     .then((photos) => {
       console.log('type before json.stringfy: ' + typeof photos); //object:array

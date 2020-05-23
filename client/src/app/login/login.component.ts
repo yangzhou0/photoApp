@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   onLogin(email,password){
     //when user clicked login button from login form, triger the authService to make calls to server
     this.authService.login({email:email, password:password}).subscribe(feedback=>{
-      if (feedback===true){ //success is true if server checked the credentials
+      if (feedback instanceof Object){ //success is true if server checked the credentials
         //update the login information from appComponent
         // navigate to photos component
         this.router.navigate(['photos']);
