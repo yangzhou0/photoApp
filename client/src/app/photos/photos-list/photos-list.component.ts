@@ -28,10 +28,7 @@ export class PhotosListComponent implements OnInit {
   }
 
   getCurrentUser(): void {
-    this.authService.getCurrentUser().subscribe((user: object) =>{
-      console.log('user in angular: ', user)
-      this.user = user['name']
-    })
+    this.user = this.authService.getUser()['name']
   }
 
   //delete particular photo

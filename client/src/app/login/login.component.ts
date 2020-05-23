@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
       if (feedback instanceof Object){ //success is true if server checked the credentials
         //update the login information from appComponent
         // navigate to photos component
+        this.authService.setUser(feedback);
         this.router.navigate(['photos']);
 
       }
