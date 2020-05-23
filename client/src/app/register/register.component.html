@@ -42,6 +42,12 @@
       <button type="button" class="btn btn-primary"
         (click)="registerForm.resetForm({})">Clear</button>
 
+      <div *ngIf='failedRegisterMessage'>
+        <br />
+        <div class="alert alert-danger">
+          <strong>{{failedRegisterMessage}}</strong>
+        </div>
+      </div>
   </form>
 
 </div>

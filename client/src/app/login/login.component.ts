@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
 })
 
 export class LoginComponent implements OnInit {
-  failedLogin: boolean = false; // initially set to false, toggle to true if user provided wrong credentials
-  failedLoginMessage; // when login failed, display this message
+  // initially set to false, toggle to true if user provided wrong credentials
+  failedLoginMessage: string; // when login failed, display this message
 
   constructor(private authService: AuthService, private router: Router, private appComponent: AppComponent) { }
 
@@ -27,7 +27,6 @@ export class LoginComponent implements OnInit {
       }
       else{ // get here if success if false
         this.failedLoginMessage = feedback
-        this.failedLogin = true;
       }
     })
   }
