@@ -10,7 +10,7 @@ import {AuthService} from './core/auth.service'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  username: string
+  username: string =''
   title = 'photoApp';
   warning: boolean;
 
@@ -23,9 +23,9 @@ export class AppComponent implements OnInit {
     //when user click logout, sync the logOut throughout the whole angular site
     this.authService.logout().subscribe(res=>{
       console.log(res)
+      this.authService.removeUser();
+      this.router.navigate(['login'])
     })
-    this.router.navigate(['login'])
-
   }
 
   checkLogin(): boolean{
@@ -33,8 +33,10 @@ export class AppComponent implements OnInit {
   }
 
   onPhotos(){
+    console.log(this.checkLogin())
     //when user click photos button on the upper right, redirect to the gallery if loggedin, otherwise pop a flash message
     if(!(this.checkLogin())){
+      console.log('incoming flash')
       this._flashMessagesService.show('Log in first!',{ cssClass: 'alert-danger',timeout: 1500 } );
       return;
     }

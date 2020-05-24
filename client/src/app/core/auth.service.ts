@@ -19,12 +19,15 @@ export class AuthService {
   }
 
   logout(){
-    localStorage.removeItem('user')
     return this.http.get(`${this.baseUrl}api/users/logout`)
   }
 
   setUser(user){
     localStorage.setItem('user', JSON.stringify(user));
+  }
+
+  removeUser(){
+    localStorage.removeItem('user');
   }
 
   getUser(){
