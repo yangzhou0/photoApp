@@ -25,7 +25,14 @@ export class LoginComponent implements OnInit {
       if (feedback instanceof Object){ //success is true if server checked the credentials
         // navigate to photos component
         this.authService.setUser(feedback);
-        this.router.navigate(['photos']);
+        let redirectUrl = this.authService.redirectUrl
+        if (redirectUrl){
+          this.router.navigate([redirectUrl]);
+          this.authService.redirectUrl = ''
+        }
+        else{
+          this.router.navigate(['photos']);
+        }
 
       }
       else{ // get here if success if false
@@ -33,6 +40,7 @@ export class LoginComponent implements OnInit {
       }
     })
   }
+
   ngOnInit(): void {
 
   }

@@ -9,6 +9,7 @@ import {environment} from '../../environments/environment';
 export class AuthService {
   //import baseUrl '/' because this Angular front-end is serving as a static file from server public folder
   baseUrl = environment.baseUrl;
+  redirectUrl: string;
 
   register(data){
     return this.http.post(`${this.baseUrl}api/users/register`,data) // return observerable
