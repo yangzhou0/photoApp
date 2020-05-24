@@ -19,14 +19,7 @@ export class PhotosComponent implements OnInit {
     private appComponent: AppComponent
   ){}
 
-  checkLoggedin(){
-    if (this.authService.isLoggedIn()){
-      this.appComponent.username = this.authService.getUser()['name']
-    }
-  }
-
   ngOnInit(): void {
-    this.checkLoggedin()
   }
 
 }

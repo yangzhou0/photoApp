@@ -23,16 +23,21 @@ export class LoginComponent implements OnInit {
     //when user clicked login button from login form, triger the authService to make calls to server
     this.authService.login({email:email, password:password}).subscribe(feedback=>{
       if (feedback instanceof Object){ //success is true if server checked the credentials
-        // navigate to photos component
+        //store user info in localStorage
         this.authService.setUser(feedback);
-        let redirectUrl = this.authService.redirectUrl
+        //grab the user.name to assign it to variable
+        let name = this.authService.getUser()['name']
+        //set username in appComponent so it will be displayed
+        this.appComponent.username = name
         //check if authService has a redirectedpage from user's last attempt,
         //if so, redirect to that page after logging in.
+        let redirectUrl = this.authService.redirectUrl
         if (redirectUrl){
           this.router.navigate([redirectUrl]);
           this.authService.redirectUrl = ''
         }
         else{
+          // navigate to photos component
           this.router.navigate(['photos']);
         }
 
