@@ -8,7 +8,12 @@
     <h3 class="pull-right">Hello<span *ngIf ='username'>{{username}}</span></h3>
   </div>
   <div class="container">
-    <div class = "pull-right"><button type="button" class="btn btn-primary" (click)="onLogout()">Logout</button></div>
+    <div *ngIf = 'username' class = "pull-right">
+      <button type="button" class="btn btn-primary" (click)="onRegisterOrLogout('logout')">Logout</button>
+    </div>
+    <div *ngIf = '!username' class = "pull-right">
+      <button type="button" class="btn btn-primary" (click)="onRegisterOrLogout('register')">Register</button>
+    </div>
   </div>
   <div class="container">
   </div>

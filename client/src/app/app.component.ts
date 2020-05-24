@@ -19,15 +19,20 @@ export class AppComponent implements OnInit {
     private _flashMessagesService: FlashMessagesService,
     private authService: AuthService){}
 
-  onLogout(){
-    //when user click logout, sync the logOut throughout the whole angular site
-    this.authService.logout().subscribe(res=>{
-      //remove userinfo from localStorage
-      this.authService.removeUser();
-      //wipe out username so it won't be displayed
-      this.username = '';
-      this.router.navigate(['login'])
-    })
+  onRegisterOrLogout(value){
+    if (value === 'logout') {
+      //when user click logout, sync the logOut throughout the whole angular site
+      this.authService.logout().subscribe(res=>{
+        //remove userinfo from localStorage
+        this.authService.removeUser();
+        //wipe out username so it won't be displayed
+        this.username = '';
+        this.router.navigate(['login'])
+      })
+    }
+    else if (value == 'register'){
+      this.router.navigate(['register'])
+    }
   }
 
   checkLogin(): boolean{
@@ -36,7 +41,10 @@ export class AppComponent implements OnInit {
 
 
   getCurrentUser(): void {
-    this.username = this.authService.getUser()['name']
+    let user = this.authService.getUser();
+    if (user){
+      this.username = user['name']
+    }
   }
 
   ngOnInit(): void {
