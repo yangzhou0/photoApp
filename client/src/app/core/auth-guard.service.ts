@@ -22,7 +22,6 @@ checkLogin(url: string): boolean {
 
   // Store the attempted URL for redirecting
   this.authService.redirectUrl = url;
-  console.log('redirect URL is :', url)
 
   // Navigate to the login page with extras
   this.router.navigate(['login']);

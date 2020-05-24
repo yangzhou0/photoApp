@@ -26,6 +26,8 @@ export class LoginComponent implements OnInit {
         // navigate to photos component
         this.authService.setUser(feedback);
         let redirectUrl = this.authService.redirectUrl
+        //check if authService has a redirectedpage from user's last attempt,
+        //if so, redirect to that page after logging in.
         if (redirectUrl){
           this.router.navigate([redirectUrl]);
           this.authService.redirectUrl = ''
