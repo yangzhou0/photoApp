@@ -34,15 +34,6 @@ export class AppComponent implements OnInit {
     return this.authService.isLoggedIn();
   }
 
-  onPhotos(){
-    //when user click photos button on the upper right, redirect to the gallery if loggedin, otherwise pop a flash message
-    if(!(this.checkLogin())){
-      console.log('incoming flash');
-      this._flashMessagesService.show('Log in first!',{ cssClass: 'alert-danger',timeout: 1500 } );
-      return;
-    }
-    this.router.navigate(['photos'])
-  }
 
   getCurrentUser(): void {
     this.username = this.authService.getUser()['name']

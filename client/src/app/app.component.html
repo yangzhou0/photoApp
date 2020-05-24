@@ -1,6 +1,9 @@
 <div class="container">
   <div class="container">
-    <h1 class="pull-left">{{title}}</h1>
+
+    <a routerLink = 'photos'>
+      <h1 class="pull-left">{{title}}</h1>
+    </a>
 
     <h3 class="pull-right">Hello<span *ngIf ='username'>{{username}}</span></h3>
   </div>
@@ -8,7 +11,7 @@
     <div class = "pull-right"><button type="button" class="btn btn-primary" (click)="onLogout()">Logout</button></div>
   </div>
   <div class="container">
-    <button class="pull-right btn btn-primary" type="button" name="button" (click)='onPhotos()'>Photos</button>
+    <button class="pull-right btn btn-primary" type="button" name="button" >Photos</button>
   </div>
 
   <hr />
