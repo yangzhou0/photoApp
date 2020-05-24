@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
     private _flashMessagesService: FlashMessagesService,
     private authService: AuthService){}
 
-  onRegisterOrLogout(value){
+  onRegisterOrLogoutOrLogin(value){
     if (value === 'logout') {
       //when user click logout, sync the logOut throughout the whole angular site
       this.authService.logout().subscribe(res=>{
@@ -32,6 +32,9 @@ export class AppComponent implements OnInit {
     }
     else if (value == 'register'){
       this.router.navigate(['register'])
+    }
+    else if (value == 'login'){
+      this.router.navigate(['login'])
     }
   }
 

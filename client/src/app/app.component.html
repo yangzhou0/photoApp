@@ -9,10 +9,13 @@
   </div>
   <div class="container">
     <div *ngIf = 'username' class = "pull-right">
-      <button type="button" class="btn btn-primary" (click)="onRegisterOrLogout('logout')">Logout</button>
+      <button type="button" class="btn btn-primary" (click)="onRegisterOrLogoutOrLogin('logout')">Logout</button>
     </div>
     <div *ngIf = '!username' class = "pull-right">
-      <button type="button" class="btn btn-primary" (click)="onRegisterOrLogout('register')">Register</button>
+      <button type="button" class="btn btn-primary" (click)="onRegisterOrLogoutOrLogin('register')">Register</button>
+    </div>
+    <div *ngIf = '!username' class = "pull-right">
+      <button type="button" class="btn btn-primary" (click)="onRegisterOrLogoutOrLogin('login')">Login</button>
     </div>
   </div>
   <div class="container">
