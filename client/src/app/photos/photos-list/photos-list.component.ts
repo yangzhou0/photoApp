@@ -5,6 +5,7 @@ import { IPhoto } from '../../shared/interface';
 import {PhotoService} from '../../core/photo.service';
 import {AuthService} from '../../core/auth.service';
 import {PhotosComponent} from '../photos.component';
+import {AppComponent} from '../../app.component'
 
 //thirparty modules
 import { FlashMessagesService } from 'angular2-flash-messages';
@@ -28,8 +29,17 @@ export class PhotosListComponent implements OnInit {
   }
 
   getCurrentUser(): void {
-    this.user = this.authService.getUser()['name']
+    //grab the localStorage user to assign it to variable
+    let user = this.authService.getUser();
+    if (user){
+      let userName = user['name']
+      this.user = userName
+      //set username in appComponent so it will be displayed
+      this.appComponent.username = userName
+    }
   }
+
+
 
   //delete particular photo
   delete(photo): void{
@@ -54,7 +64,9 @@ export class PhotosListComponent implements OnInit {
   constructor(private photoService: PhotoService,
     private photosComponent: PhotosComponent,
     private _flashMessagesService: FlashMessagesService,
-    private authService: AuthService) { }
+    private authService: AuthService,
+    private appComponent: AppComponent
+  ) { }
 
 
   ngOnInit(): void {

@@ -25,10 +25,6 @@ export class LoginComponent implements OnInit {
       if (feedback instanceof Object){ //success is true if server checked the credentials
         //store user info in localStorage
         this.authService.setUser(feedback);
-        //grab the user.name to assign it to variable
-        let name = this.authService.getUser()['name']
-        //set username in appComponent so it will be displayed
-        this.appComponent.username = name
         //check if authService has a redirectedpage from user's last attempt,
         //if so, redirect to that page after logging in.
         let redirectUrl = this.authService.redirectUrl
