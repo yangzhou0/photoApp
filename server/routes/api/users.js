@@ -42,6 +42,7 @@ router.post('/register',(req,res,next)=>{
   let email = req.body.email
   let name = req.body.name
   let password = req.body.password
+  let nickname = req.body.nickname
   UserService.findByEmail(email).then(foundUser=>{
     // if found user, send res with message
     if (foundUser instanceof Object ){
@@ -52,7 +53,8 @@ router.post('/register',(req,res,next)=>{
     let user = new userModel(
       {
         email:email,
-        name:name
+        name:name,
+        nickname:nickname
       }
     )
     //hash the password
