@@ -35,7 +35,7 @@ export class PhotosListComponent implements OnInit {
       let userName = user['nickname']
       this.user = userName
       //set username in appComponent so it will be displayed
-      this.appComponent.username = userName
+      this.appComponent.user = user
     }
   }
 

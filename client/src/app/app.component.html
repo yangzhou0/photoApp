@@ -5,16 +5,17 @@
       <h1 class="pull-left">{{title}}</h1>
     </a>
 
-    <h3 class="pull-right">Hello <span *ngIf ='username'>{{username}}</span></h3>
+    <h3 class="pull-right">Hello <span *ngIf ='user'><a routerLink='photos' routerLinkActive="active">{{user.nickname}}</a></span></h3>
   </div>
+
   <div class="container">
-    <div *ngIf = 'username' class = "pull-right">
+    <div *ngIf = 'user' class = "pull-right">
       <button type="button" class="btn btn-primary" (click)="onRegisterOrLogoutOrLogin('logout')">Logout</button>
     </div>
-    <div *ngIf = '!username' class = "pull-right">
+    <div *ngIf = '!user' class = "pull-right">
       <button type="button" class="btn btn-primary" (click)="onRegisterOrLogoutOrLogin('register')">Register</button>
     </div>
-    <div *ngIf = '!username' class = "pull-right">
+    <div *ngIf = '!user' class = "pull-right">
       <button type="button" class="btn btn-primary" (click)="onRegisterOrLogoutOrLogin('login')">Login</button>
     </div>
   </div>

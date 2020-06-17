@@ -10,7 +10,7 @@ import {AuthService} from './core/auth.service'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  username: string =''
+  user
   title = 'photoApp';
   warning: boolean;
 
@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
         //remove userinfo from localStorage
         this.authService.removeUser();
         //wipe out username so it won't be displayed
-        this.username = '';
+        this.user = null;
         this.router.navigate(['login'])
       })
     }
@@ -46,7 +46,7 @@ export class AppComponent implements OnInit {
   getCurrentUser(): void {
     let user = this.authService.getUser();
     if (user){
-      this.username = user['name']
+      this.user = user
     }
   }
 
