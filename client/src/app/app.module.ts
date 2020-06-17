@@ -17,6 +17,7 @@ import {HttpRequestInterceptor} from './core/HttpRequestInterceptor'
 //third party modules
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { RegisterComponent } from './register/register.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { RegisterComponent } from './register/register.component';
     EditPhotoFormComponent,
     LoginComponent,
     PhotosListComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
