@@ -11,7 +11,7 @@ __Remember__: The predetermined credentials are:
 > Username: __admin123__
 > Password: __password123__
 
-<h2 id="functionality">Functionality</h2>
+<h3 id="functionality">Functionality</h3>
 ### Functionality:
 
 1. CRUD operations are implemented:

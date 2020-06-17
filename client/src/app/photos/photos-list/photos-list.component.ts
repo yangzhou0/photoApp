@@ -32,7 +32,7 @@ export class PhotosListComponent implements OnInit {
     //grab the localStorage user to assign it to variable
     let user = this.authService.getUser();
     if (user){
-      let userName = user['name']
+      let userName = user['nickname']
       this.user = userName
       //set username in appComponent so it will be displayed
       this.appComponent.username = userName
