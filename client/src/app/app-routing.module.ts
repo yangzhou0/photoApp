@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router'; // CLI imports router
+import {ProfileComponent} from './profile/profile.component';
 import {PhotosComponent} from './photos/photos.component';
 import {PhotoComponent} from './photos/photo/photo.component';
 import { PhotosListComponent } from './photos/photos-list/photos-list.component';
@@ -22,6 +23,7 @@ const routes: Routes = [
         component: PhotosListComponent
       }
     ]},
+  { path: 'users/:id', component: ProfileComponent},
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
   { path: '', redirectTo: '/login', pathMatch: 'full'}, //www.xx.com would direct to photos component
