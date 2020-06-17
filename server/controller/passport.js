@@ -5,6 +5,7 @@ var User = require('../models/userModel')
 
 
 passport.use(new LocalStrategy(
+  //define varibales for passport to look for in req.body
   {
     usernameField: 'email',
     passwordField: 'password'
