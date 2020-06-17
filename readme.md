@@ -1,4 +1,5 @@
 ## Assignment #7 - Final Project
+[Functionality](#functionality)
 
 ### Intro:
 This is an integration of Angular and Node. Angular project is compiled and served as a static file on the express server. I made some improvements from [Assignment 6 project](https://github.com/HarvardDCENode/assignment-6-yangzhou93)
@@ -10,6 +11,7 @@ __Remember__: The predetermined credentials are:
 > Username: __admin123__
 > Password: __password123__
 
+<h2 id="functionality">Functionality</h2>
 ### Functionality:
 
 1. CRUD operations are implemented:
