@@ -5,6 +5,10 @@ class UserService{
   static findByEmail(email){
     return userModel.findOne({email:email})
   }
+
+  static updateProfile(id,data){
+    return userModel.findOneAndUpdate({_id:id},data,{new: true})
+  }
 }
 
 module.exports.UserService = UserService;

@@ -68,5 +68,15 @@ router.post('/register',(req,res,next)=>{
   })
 })
 
+router.put('/:userID',(req,res,next)=>{
+  let updateProfileData = req.body;
+  let id = req.params.userID;
+  UserService.updateProfile(id,updateProfileData).then((user)=>{
+      res.status(200).json(user)
+  })
+
+
+})
+
 
 module.exports = router;
