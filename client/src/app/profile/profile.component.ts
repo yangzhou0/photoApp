@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../core/auth.service'
+import {UserService} from '../core/user.service';
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -13,9 +15,17 @@ export class ProfileComponent implements OnInit {
   }
 
   updateProfile(data){
-    
+    let userId = this.user._id
+    this.userService.updateProfile(userId,data).subscribe((user)=>{
+      this.authService.setUser(user);
+      // this.getCurrentUser()
+    })
   }
-  constructor(private authService: AuthService) { }
+
+  constructor(
+    private authService: AuthService,
+    private userService: UserService
+  ) { }
 
   ngOnInit(): void {
     this.getCurrentUser()

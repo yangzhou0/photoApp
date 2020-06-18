@@ -9,7 +9,7 @@ export class UserService {
   baseUrl = environment.baseUrl;
 
   updateProfile(id,data){
-    this.http.put(`${this.baseUrl}api/users/${id}`)
+    return this.http.put(`${this.baseUrl}api/users/${id}`,data)
   }
   constructor(private http: HttpClient) { }
 }
