@@ -10,7 +10,6 @@
                name="description"
                required
                minlength="4"
-               placeholder="description"
                [(ngModel)] = "photo.description">
 
               <!-- check form validation and react accordingly to provide feedback to user -->
@@ -33,7 +32,6 @@
         <input type="text" class="form-control" id="hashtag"
                required
                name="hashtag"
-               placeholder="#"
                #hashtag = 'ngModel'
                [(ngModel)] = "photo.hashtag">
        <div *ngIf="hashtag.invalid && (hashtag.dirty || hashtag.touched)"

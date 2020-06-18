@@ -11,6 +11,10 @@ export class ProfileComponent implements OnInit {
     //grab the localStorage user to assign it to variable
     this.user = this.authService.getUser();
   }
+
+  updateProfile(data){
+    
+  }
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
