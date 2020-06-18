@@ -5,12 +5,8 @@
     <label for="nickname">Nickname</label>
     <input type="text" class="form-control"
     [ngModel]="user.nickname" name="nickname" required #nickname="ngModel">
-      <div [hidden]="nickname.valid"
-        class="alert alert-danger">
-        Nickname is required
-      </div>
   </div>
-  <button type="submit" class="btn btn-primary" [disabled]="editProfileForm.invalid">Submit</button>
+  <button type="submit" class="btn btn-primary" [disabled]="editProfileForm.invalid ||editProfileForm.pristine">Submit</button>
 </form>
 
 </div>
