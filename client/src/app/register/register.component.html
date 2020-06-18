@@ -1,5 +1,5 @@
 <div class="container">
-  <form (ngSubmit)="onRegister(name.value,nickname.value, email.value, password.value)" #registerForm="ngForm">
+  <form (ngSubmit)="onRegister(registerForm.value)" #registerForm="ngForm">
 
     <div class="form-group">
       <label for="name">Name</label>

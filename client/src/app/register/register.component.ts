@@ -11,8 +11,8 @@ import {AppComponent} from '../app.component'
 export class RegisterComponent implements OnInit {
   failedRegisterMessage: string;
 
-  onRegister(name,nickname,email,password){
-    this.authService.register({name:name, nickname:nickname, email:email, password:password}).subscribe((feedBack)=>{
+  onRegister(data){
+    this.authService.register(data).subscribe((feedBack)=>{
       if (feedBack instanceof Object){
         this.authService.setUser(feedBack);
         this.router.navigate(['photos'])
