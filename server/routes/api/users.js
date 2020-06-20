@@ -73,6 +73,7 @@ router.get('/:userID',(req,res,next)=>{
   UserService.findById(id).then((user)=>{
       res.status(200).json(user)
   })
+})
 
 router.put('/:userID',(req,res,next)=>{
   let updateProfileData = req.body;
