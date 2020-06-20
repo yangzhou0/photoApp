@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../core/auth.service'
 import {UserService} from '../core/user.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -10,6 +12,7 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 export class ProfileComponent implements OnInit {
   user
   getCurrentUser(): void {
+    let userID = this.route.snapshot.paramMap.get('id');
     //grab the localStorage user to assign it to variable
     this.user = this.authService.getUser();
   }
@@ -26,6 +29,7 @@ export class ProfileComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private userService: UserService,
+    private route: ActivatedRoute,
     private _flashMessagesService: FlashMessagesService
   ) { }
 
