@@ -3,7 +3,7 @@
 </div>
 
 
-<div *ngIf = 'editingProfile' class="container">
+<div *ngIf = 'canEdit' class="container">
 <form #editProfileForm = 'ngForm' (ngSubmit)="updateProfile(editProfileForm.value)">
   <div class="form-group">
     <label for="nickname">Nickname</label>
@@ -13,9 +13,9 @@
   <button type="submit" class="btn btn-primary" [disabled]="editProfileForm.invalid ||editProfileForm.pristine">Submit</button>
 </form>
 
-<div *ngIf = 'editingProfile' class="container">
+<div class="container">
   <h4>Nickname:</h4>
-  <p></p>
+  <p>{{user.nickname}}</p>
 </div>
 
 </div>

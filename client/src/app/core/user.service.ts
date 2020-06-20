@@ -11,5 +11,9 @@ export class UserService {
   updateProfile(id,data){
     return this.http.put(`${this.baseUrl}api/users/${id}`,data)
   }
+
+  getUser(id){
+    
+  }
   constructor(private http: HttpClient) { }
 }

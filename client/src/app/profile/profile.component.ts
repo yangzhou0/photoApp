@@ -11,17 +11,20 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
   user
-  editingProfile = false
+  canEdit = false
   getCurrentUser(): void {
     let userID = this.route.snapshot.paramMap.get('id');
     //grab the localStorage user to assign it to variable
-    this.user = this.authService.getUser();
-    if (this.user._id == userID){
-      this.editingProfile = true
+    let loggedInUser = this.authService.getUser()
+    if (loggedInUser._id == userID){
+      this.user = loggedInUser
+      this.canEdit = true
     }
     else{
-      //set this.user to the one from DB corresponding to the userID
-      //this.editingProfile = false
+      this.userService.getUser(userID).subscribe((user)=>{
+        this.user = user
+      });
+      this.canEdit = false
     }
   }
 
