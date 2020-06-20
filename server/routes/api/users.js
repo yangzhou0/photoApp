@@ -68,6 +68,12 @@ router.post('/register',(req,res,next)=>{
   })
 })
 
+router.get('/:userID',(req,res,next)=>{
+  let id = req.params.userID;
+  UserService.findById(id).then((user)=>{
+      res.status(200).json(user)
+  })
+
 router.put('/:userID',(req,res,next)=>{
   let updateProfileData = req.body;
   let id = req.params.userID;

@@ -13,7 +13,7 @@ export class UserService {
   }
 
   getUser(id){
-    
+    return this.http.get(`${this.baseUrl}api/users/${id}`,data)
   }
   constructor(private http: HttpClient) { }
 }
