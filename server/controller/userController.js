@@ -13,6 +13,11 @@ class UserService{
   static updateProfile(id,data){
     return userModel.findOneAndUpdate({_id:id},data,{new: true})
   }
+
+  static findByNickname(nickname){
+    return userModel.findOne({nickname:nickname})
+  }
+
 }
 
 module.exports.UserService = UserService;

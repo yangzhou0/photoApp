@@ -75,12 +75,22 @@ router.get('/:userID',(req,res,next)=>{
   })
 })
 
-router.put('/:userID',(req,res,next)=>{
+router.put('/:userID',async (req,res,next)=>{
   let updateProfileData = req.body;
   let id = req.params.userID;
+
+  // query user object with the given nickname
+  let existed = await UserService.findByNickname(updateProfileData['nickname']);
+  // if nickname already existed, return.
+  if (existed && existed._id !== id){
+    return res.json('Nickname already used')
+  }
   UserService.updateProfile(id,updateProfileData).then((user)=>{
       res.status(200).json(user)
   })
+
+
+
 
 
 })
