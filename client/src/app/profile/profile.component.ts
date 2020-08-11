@@ -10,8 +10,9 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  user
-  canEdit = false
+  user;
+  errorMessage;
+  canEdit = false;
   getCurrentUser(): void {
     let userID = this.route.snapshot.paramMap.get('id');
     //grab the localStorage user to assign it to variable
@@ -29,11 +30,16 @@ export class ProfileComponent implements OnInit {
   }
 
   updateProfile(data){
+    this.errorMessage = null
     let userId = this.user._id
     this.userService.updateProfile(userId,data).subscribe((user)=>{
-      this.authService.setUser(user);
-      this._flashMessagesService.show('Update Successful', { cssClass: 'alert-success',timeout: 2000 } );
-      // this.getCurrentUser()
+      if (typeof user === 'string'){
+        this.errorMessage = 'Nickname already taken';
+      }
+      else{
+        this.authService.setUser(user);
+        this._flashMessagesService.show('Update Successful', { cssClass: 'alert-success',timeout: 2000 } );
+      }
     })
   }
 

@@ -13,9 +13,11 @@
   <button type="submit" class="btn btn-primary" [disabled]="editProfileForm.invalid ||editProfileForm.pristine">Submit</button>
 </form>
 
-<div class="container">
-  <h4>Nickname:</h4>
-  <p>{{user.nickname}}</p>
+<div *ngIf='errorMessage'>
+  <br />
+  <div class="alert alert-danger">
+    <strong>{{errorMessage}}</strong>
+  </div>
 </div>
 
 </div>
