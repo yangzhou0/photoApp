@@ -5,7 +5,7 @@
 This is an integration of Angular and Node. Angular project is compiled and served as a static file on the express server.
 
 ### How to use:
-[ClickMe](http://167.99.14.231:8000/login)
+[ClickMe](http://167.99.14.231:8000)
 
 __Remember__: The predetermined credentials are:
 > Email: __test123@gmail.com__
