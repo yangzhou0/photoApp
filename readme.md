@@ -1,8 +1,8 @@
-## Assignment #7 - Final Project
+## Photo App Project
 [Functionality](#functionality)
 
 ### Intro:
-This is an integration of Angular and Node. Angular project is compiled and served as a static file on the express server. I made some improvements from [Assignment 6 project](https://github.com/HarvardDCENode/assignment-6-yangzhou93)
+This is an integration of Angular and Node. Angular project is compiled and served as a static file on the express server.
 
 ### How to use:
 [ClickMe](http://167.99.14.231:8000/login)
@@ -29,3 +29,7 @@ __Remember__: The predetermined credentials are:
 5. Utilize HttpClient in PhotoService to interact with data on MongoDB using REST APIs
 
 6. ___New___: A login page is applied and Angular responds accordingly based on if user is logged in or not
+
+7. ___New___: Enables function to check if existed username is used when registering
+
+8. ___New___: Added profile page to enable user to view and update personal information
