@@ -4,7 +4,7 @@
         <label for="email">Email</label>
         <input type="text" class="form-control" id="email"
                #email="ngModel" name="email" required placeholder="Copy email below" [ngModel]=''>
-        Email: <strong>admin123</strong>
+        Email: <strong>test123@gmail.com</strong>
         <div *ngIf="email.invalid && (email.dirty || email.touched)"
              class="alert alert-danger">
            <div *ngIf="email.errors.required">
