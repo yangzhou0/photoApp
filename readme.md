@@ -8,7 +8,7 @@ This is an integration of Angular and Node. Angular project is compiled and serv
 [ClickMe](http://167.99.14.231:8000/login)
 
 __Remember__: The predetermined credentials are:
-> Username: __admin123__
+> Email: __test123@gmail.com__
 > Password: __password123__
 
 <h3 id="functionality">Functionality</h3>
