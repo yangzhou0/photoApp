@@ -12,7 +12,6 @@ __Remember__: The predetermined credentials are:
 > Password: __password123__
 
 <h3 id="functionality">Functionality</h3>
-### Functionality:
 
 1. CRUD operations are implemented:
  + Home pages Read all the photos from server
