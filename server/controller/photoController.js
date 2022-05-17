@@ -25,7 +25,6 @@ var filter = function fileFilter (req, file, cb) {
 class PhotoService {
   //list
   static list(){
-    console.log('type of photos from mongoose call: ' + typeof photoModel.find())//array:object
     return photoModel.find();
   }
   //read
