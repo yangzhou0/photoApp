@@ -9,7 +9,7 @@ This is an integration of Angular and Node. Angular project is compiled and serv
 
 __Remember__: The predetermined credentials are:
 > Email: __test123@gmail.com__
-> Password: __password123__
+> Password: __password__
 
 <h3 id="functionality">Functionality</h3>
 
